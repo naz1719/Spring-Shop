@@ -6,9 +6,13 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 /**
  * Product controller.
@@ -25,10 +29,11 @@ public class ProductController {
      * @return
      */
     @RequestMapping(value = "/products", method = RequestMethod.GET)
-    public String list(Model model) {
-        model.addAttribute("products", productRepository.findAll());
-        System.out.println("Returning rpoducts:");
-        return "products";
+    public ModelAndView list() {
+        ModelAndView modelAndView = new ModelAndView("products");
+        Iterable<Product> all = productRepository.findAll();
+        modelAndView.addObject("products", all);
+        return modelAndView;
     }
 
     /**
