@@ -20,8 +20,6 @@ public class Product {
 
 	@Version
 	private Integer version;
-
-	private String productId;
 	@Indexed
 	private String name;
 	private int price;
@@ -31,9 +29,8 @@ public class Product {
 	}
 
 	@PersistenceConstructor
-	public Product(Integer version, String productId, String name, int price) {
+	public Product(Integer version, String name, int price) {
 		this.version = version;
-		this.productId = productId;
 		this.name = name;
 		this.price = price;
 	}
