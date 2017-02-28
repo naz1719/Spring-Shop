@@ -15,9 +15,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class ProductCRUDController {
+<<<<<<< HEAD
     @Autowired
     ProductRepository productRepository;
 
+=======
+    ProductRepository productRepository;
+
+    @Autowired
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+>>>>>>> origin/master
     /**
      * -------------------Edit Product--------------------------------------------------------
      */
@@ -26,7 +35,10 @@ public class ProductCRUDController {
         model.addAttribute("product", productRepository.findOne(id));
         return "productform";
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     /**
      * -------------------New Product--------------------------------------------------------
      */
@@ -35,7 +47,10 @@ public class ProductCRUDController {
         model.addAttribute("product", new Product());
         return "productform";
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     /**
      * -------------------Update Product--------------------------------------------------------
      */
@@ -44,7 +59,10 @@ public class ProductCRUDController {
         productRepository.save(product);
         return "redirect:/product/" + product.getId();
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
     /**
      * -------------------Delete Product--------------------------------------------------------
      */

@@ -19,18 +19,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class ProductController {
+<<<<<<< HEAD
     @Autowired
     ProductRepository productRepository;
+=======
+    ProductRepository productRepository;
+    @Autowired
+    public void setProductRepository(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+>>>>>>> origin/master
 
     /**
      * -------------------Retrieve All Products--------------------------------------------------------
      */
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     @ModelAttribute("products")
+<<<<<<< HEAD
     public Page<Product> list(@PageableDefault(size = 8) Pageable pageable) {
+=======
+    public Page<Product> list(@PageableDefault(size = 3) Pageable pageable) {
+>>>>>>> origin/master
         return productRepository.findAll(pageable);
     }
-
     /**
      * -------------------Retrieve Single Products--------------------------------------------------------
      */
@@ -40,5 +51,9 @@ public class ProductController {
         return "productinfo";
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 
 }
