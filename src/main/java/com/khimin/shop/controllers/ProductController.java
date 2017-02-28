@@ -5,7 +5,9 @@ import com.khimin.shop.repositories.ProductRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +29,7 @@ public class ProductController {
      */
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     @ModelAttribute("products")
-    public Page<Product> list(@PageableDefault(size = 8) Pageable pageable) {
+    public Page<Product> list(@PageableDefault(size = 8,direction = Sort.Direction.ASC,sort = "price") Pageable pageable) {
         return productRepository.findAll(pageable);
     }
 
