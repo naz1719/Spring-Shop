@@ -38,8 +38,8 @@ public class ProductController {
      */
     @RequestMapping("product/{id}")
     public String showProduct(@PathVariable ObjectId id, Model model) {
-        model.addAttribute("product", productRepository.findOne(id));
-        return "productinfo";
+        model.addAttribute("productInformation", productRepository.findOne(id));
+        return "productInfo";
     }
 
 

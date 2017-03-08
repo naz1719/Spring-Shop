@@ -11,27 +11,27 @@ import org.springframework.data.mongodb.core.mapping.Document;
 /**
  * Product entity.
  */
+
 @Data
 @Document(collection = "products")
 public class Product {
 
-	@Id
-	ObjectId id = new ObjectId();
+	@Id private ObjectId id = new ObjectId();
 
-	@Version
-	private Integer version;
 	@Indexed
 	private String name;
 	private int price;
+	private Category category;
 
 
 	public Product() {
 	}
 
 	@PersistenceConstructor
-	public Product(Integer version, String name, int price) {
-		this.version = version;
+	public Product(String name, int price,Category category) {
 		this.name = name;
 		this.price = price;
+		this.category=category;
+
 	}
 }

@@ -13,15 +13,16 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
 @Configuration
 @EnableSpringDataWebSupport
 @EnableMongoRepositories
-class ApplicationConfig extends AbstractMongoConfiguration {
+class MongoConfig extends AbstractMongoConfiguration {
 
-	@Override
-	public Mongo mongo() throws Exception {
-		return new MongoClient();
-	}
 
-	@Override
-	protected String getDatabaseName() {
-		return "mongo-shop";
-	}
+    @Override
+    public Mongo mongo() throws Exception {
+        return new MongoClient();
+    }
+
+    @Override
+    protected String getDatabaseName() {
+        return "mongo-shop";
+    }
 }

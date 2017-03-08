@@ -20,6 +20,7 @@
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
+            <!--/*@thymesVar id="products" type="com.khimin.shop.controllers.ProductController"*/-->
             <tr th:each="product : ${products}">
                 <td th:text="${product.id}"><a href="/product/${product.id}">Id</a></td>
                 <td th:text="${product.name}">descirption</td>
@@ -45,10 +46,6 @@
             </li>
         </ul>
     </nav>
-
-    <!--<ol>-->
-        <!--<li th:each="user, it : ${products}" th:with="index = ${it.count}" th:text="${user.username + ' - ' + user.password}" th:value="${users.number * users.size + index}">Username</li>-->
-    <!--</ol>-->
 
 </div>
 
