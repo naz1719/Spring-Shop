@@ -20,7 +20,6 @@
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-            <!--/*@thymesVar id="products" type="com.khimin.shop.controllers.ProductController"*/-->
             <tr th:each="product : ${products}">
                 <td th:text="${product.id}"><a href="/product/${product.id}">Id</a></td>
                 <td th:text="${product.name}">descirption</td>

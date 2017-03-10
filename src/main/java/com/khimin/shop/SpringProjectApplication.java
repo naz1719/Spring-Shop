@@ -36,11 +36,9 @@ public class SpringProjectApplication {
         customerRepository.deleteAll();
         Category category = new Category();
         category.setName("t-shirt");
-        categoryRepository.save(category);
         List<Product> t_shirt1 = new ArrayList();
         t_shirt1.add(new Product("Barbuer", 2000, category));
         t_shirt1.add(new Product("Lacosta", 2000, category));
-
         productRepository.save(new Product("Barbuer", 2000, category));
         productRepository.save(new Product("Lacosta", 2000, category));
         Address OrestAddress = new Address();
@@ -51,7 +49,6 @@ public class SpringProjectApplication {
         OrestCustomer.setFirstname("Orest");
         OrestCustomer.setLastname("Bobko");
         OrestCustomer.setAddress(OrestAddress);
-        customerRepository.save(OrestCustomer);
         Order order = new Order();
         order.setCustomer(OrestCustomer);
         order.setItems(t_shirt1);
