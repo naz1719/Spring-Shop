@@ -4,8 +4,7 @@ import lombok.Data;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
-import org.springframework.data.annotation.Version;
-import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.index.TextIndexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 /**
@@ -16,22 +15,22 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "products")
 public class Product {
 
-	@Id private ObjectId id = new ObjectId();
+    @Id
+    private ObjectId id = new ObjectId();
 
-	@Indexed
-	private String name;
-	private int price;
-	private Category category;
+    @TextIndexed(weight = 3) private String name;
+    private int price;
+    private Category category;
 
 
-	public Product() {
-	}
+    public Product() {
+    }
 
-	@PersistenceConstructor
-	public Product(String name, int price,Category category) {
-		this.name = name;
-		this.price = price;
-		this.category=category;
+    @PersistenceConstructor
+    public Product(String name, int price, Category category) {
+        this.name = name;
+        this.price = price;
+        this.category = category;
 
-	}
+    }
 }

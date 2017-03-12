@@ -13,6 +13,8 @@ import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Arrays.asList;
+
 @SpringBootApplication
 public class SpringProjectApplication {
 
@@ -36,9 +38,6 @@ public class SpringProjectApplication {
         customerRepository.deleteAll();
         Category category = new Category();
         category.setName("t-shirt");
-        List<Product> t_shirt1 = new ArrayList();
-        t_shirt1.add(new Product("Barbuer", 2000, category));
-        t_shirt1.add(new Product("Lacosta", 2000, category));
         productRepository.save(new Product("Barbuer", 2000, category));
         productRepository.save(new Product("Lacosta", 2000, category));
         Address OrestAddress = new Address();
@@ -51,7 +50,8 @@ public class SpringProjectApplication {
         OrestCustomer.setAddress(OrestAddress);
         Order order = new Order();
         order.setCustomer(OrestCustomer);
-        order.setItems(t_shirt1);
+        order.setItems(asList(new Product("Barbuer", 2000, category),
+                new Product("Lacosta", 2000, category)));
         orderRepository.save(order);
     }
 }
