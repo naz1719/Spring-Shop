@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 the original author or authors.
+ * Copyright 2012 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,20 +15,32 @@
  */
 package com.khimin.shop.entities;
 
-import lombok.Data;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import org.springframework.data.geo.Point;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.util.Assert;
 
 /**
- * A domain object to capture addresses.
+ * An address.
  */
-@RequiredArgsConstructor
-@Data
+@Getter
 public class Address {
 
-    private String location;
-    private String street;
-    private String zipCode;
+    private final String street, city, country;
+
+    /**
+     * Creates a new {@link Address} from the given street, city and country.
+     *
+     * @param street  must not be {@literal null} or empty.
+     * @param city    must not be {@literal null} or empty.
+     * @param country must not be {@literal null} or empty.
+     */
+    public Address(String street, String city, String country) {
+
+        Assert.hasText(street, "Street must not be null or empty!");
+        Assert.hasText(city, "City must not be null or empty!");
+        Assert.hasText(country, "Country must not be null or empty!");
+
+        this.street = street;
+        this.city = city;
+        this.country = country;
+    }
 }

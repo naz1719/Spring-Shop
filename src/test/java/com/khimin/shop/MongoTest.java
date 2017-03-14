@@ -1,5 +1,6 @@
 package com.khimin.shop;
 
+import com.khimin.shop.entities.Customer;
 import com.khimin.shop.entities.Product;
 import com.khimin.shop.repositories.ProductRepository;
 import org.junit.Test;
@@ -31,13 +32,11 @@ public class MongoTest {
     }
     @Test
     public void testMongoOpertation(){
-        Product orest = new Product();
-        orest.setName("Orest");
+        Customer orest = new Customer("Orest","Bobko", null);
         productRepository.exists(orest.getId());
         ExampleMatcher matcher = ExampleMatcher.matching()
-                .withIgnorePaths("name")
                 .withIncludeNullValues();
-        Example<Product> example = Example.of(orest, matcher);
+        Example<Customer> example = Example.of(orest, matcher);
     }
 }
 

@@ -15,7 +15,9 @@
  */
 package com.khimin.shop.entities;
 
+import com.khimin.shop.core.AbstractDocument;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
@@ -23,23 +25,28 @@ import org.springframework.data.annotation.PersistenceConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * An entity representing an {@link Order}. Note how we don't need any MongoDB mapping annotations as {@code id} is
  * recognized as the id property by default.
  */
+@EqualsAndHashCode(callSuper = false)
 @Data
 @RequiredArgsConstructor(onConstructor = @__(@PersistenceConstructor))
 @Document(collection = "orders")
-public class Order {
-
-    @Id private ObjectId id = new ObjectId();
+public class Order extends AbstractDocument {
     private Customer customer;
-    @Field(value = "items")
-    private List<Product> items;
+    private Set<Product> items = new HashSet<Product>();
     private Date orderDate = new Date();
 
+
+    /**
+     * Adds the given {@link Product} to the {@link Order}.
+     *
+     * @param items
+     */
+    public void add(Product items) {
+        this.items.add(items);
+    }
 }

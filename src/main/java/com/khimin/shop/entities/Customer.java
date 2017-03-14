@@ -15,8 +15,8 @@
  */
 package com.khimin.shop.entities;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import com.khimin.shop.core.AbstractDocument;
+import lombok.*;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.PersistenceConstructor;
@@ -26,15 +26,13 @@ import org.springframework.util.Assert;
 
 /**
  * An entity to represent a customer.
- *
  */
-@RequiredArgsConstructor
-@Data
+@EqualsAndHashCode(callSuper = false)
+@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+@Getter
 @Document(collection = "customers")
-public class Customer {
+public class Customer extends AbstractDocument {
 
-    @Id
-    ObjectId id = new ObjectId();
     private String firstname, lastname;
     private Address address;
 

@@ -40,18 +40,12 @@ public class SpringProjectApplication {
         category.setName("t-shirt");
         productRepository.save(new Product("Barbuer", 2000, category));
         productRepository.save(new Product("Lacosta", 2000, category));
-        Address OrestAddress = new Address();
-        OrestAddress.setLocation("Lviv");
-        OrestAddress.setStreet("Gasheka 15a");
-        OrestAddress.setZipCode("03907");
-        Customer OrestCustomer = new Customer();
-        OrestCustomer.setFirstname("Orest");
-        OrestCustomer.setLastname("Bobko");
-        OrestCustomer.setAddress(OrestAddress);
+        Address OrestAddress = new Address("Lviv","Gasheka 15a","03907");
+        Customer OrestCustomer = new Customer("Orest","Bobko",OrestAddress);
         Order order = new Order();
         order.setCustomer(OrestCustomer);
-        order.setItems(asList(new Product("Barbuer", 2000, category),
-                new Product("Lacosta", 2000, category)));
+        order.add(new Product("Barbuer", 2000, category));
+        order.add(new Product("Lacosta", 2000, category));
         orderRepository.save(order);
     }
 }

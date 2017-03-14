@@ -10,4 +10,6 @@ import java.util.List;
 
 public interface ProductRepository extends PagingAndSortingRepository<Product, ObjectId> {
     List<Product> findAllBy(TextCriteria criteria);
+    List<Product> findAllByOrderByPriceDesc(TextCriteria criteria);
+
 }

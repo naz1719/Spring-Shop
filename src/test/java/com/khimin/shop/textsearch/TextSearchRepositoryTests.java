@@ -31,5 +31,4 @@ public class TextSearchRepositoryTests {
 
         printResult(products, criteria);
     }
-
 }
