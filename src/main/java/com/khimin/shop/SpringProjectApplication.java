@@ -1,6 +1,6 @@
 package com.khimin.shop;
 
-import com.khimin.shop.entities.*;
+import com.khimin.shop.models.*;
 import com.khimin.shop.repositories.CategoryRepository;
 import com.khimin.shop.repositories.CustomerRepository;
 import com.khimin.shop.repositories.OrderRepository;
@@ -10,10 +10,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.util.Arrays.asList;
 
 @SpringBootApplication
 public class SpringProjectApplication {

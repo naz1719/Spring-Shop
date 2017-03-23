@@ -1,6 +1,6 @@
 package com.khimin.shop.util;
 
-import com.khimin.shop.entities.Product;
+import com.khimin.shop.models.Product;
 import org.springframework.data.mongodb.core.query.CriteriaDefinition;
 
 import java.util.Collection;

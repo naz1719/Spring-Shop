@@ -1,6 +1,6 @@
 package com.khimin.shop.controllers;
 
-import com.khimin.shop.entities.Product;
+import com.khimin.shop.models.Product;
 import com.khimin.shop.repositories.ProductRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;

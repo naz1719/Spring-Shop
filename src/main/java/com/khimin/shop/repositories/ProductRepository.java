@@ -1,7 +1,7 @@
 package com.khimin.shop.repositories;
 
 
-import com.khimin.shop.entities.Product;
+import com.khimin.shop.models.Product;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.data.repository.PagingAndSortingRepository;

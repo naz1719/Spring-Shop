@@ -1,6 +1,6 @@
 package com.khimin.shop.repositories;
 
-import com.khimin.shop.entities.Category;
+import com.khimin.shop.models.Category;
 import org.bson.types.ObjectId;
 import org.springframework.data.repository.CrudRepository;
 

@@ -1,6 +1,6 @@
 package com.khimin.shop.textsearch;
 
-import com.khimin.shop.entities.Product;
+import com.khimin.shop.models.Product;
 import com.khimin.shop.repositories.ProductRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;

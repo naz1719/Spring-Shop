@@ -15,7 +15,7 @@
  */
 package com.khimin.shop.repositories;
 
-import com.khimin.shop.entities.Order;
+import com.khimin.shop.models.Order;
 import org.bson.types.ObjectId;
 import org.springframework.data.repository.CrudRepository;
 

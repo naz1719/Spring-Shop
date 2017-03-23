@@ -15,7 +15,7 @@
  */
 package com.khimin.shop.repositories;
 
-import com.khimin.shop.entities.Customer;
+import com.khimin.shop.models.Customer;
 import org.bson.types.ObjectId;
 import org.springframework.data.repository.CrudRepository;
 
