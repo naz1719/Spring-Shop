@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
-    <title>Spring Boot Exemple</title>
-
-    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<head>
+    <title>Title</title>
+    <th:block th:include="fragments/headerinc :: head"></th:block>
 </head>
 <body>
 <div class="container">
-    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <th:block th:include="fragments/header :: header"></th:block>
+
     <div th:if="${not #lists.isEmpty(products)}">
         <h2>Product List</h2>
         <table class="table table-striped">
@@ -33,20 +32,25 @@
     <nav>
         <ul class="pagination" th:with="total = ${products.totalPages}">
             <li th:if="${products.hasPrevious()}">
-                <a th:href="@{/products(page=${products.previousPageable().pageNumber},size=${products.size})}" aria-label="Previous">
+                <a th:href="@{/products(page=${products.previousPageable().pageNumber},size=${products.size})}"
+                   aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li th:each="page : ${#numbers.sequence(0, total - 1)}"><a th:href="@{/products(page=${page},size=${products.size})}" th:text="${page + 1}">1</a></li>
+            <li th:each="page : ${#numbers.sequence(0, total - 1)}"><a
+                    th:href="@{/products(page=${page},size=${products.size})}" th:text="${page + 1}">1</a></li>
             <li th:if="${products.hasNext()}">
-                <a th:href="@{/products(page=${products.nextPageable().pageNumber},size=${products.size})}" aria-label="Next">
+                <a th:href="@{/products(page=${products.nextPageable().pageNumber},size=${products.size})}"
+                   aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
         </ul>
     </nav>
-
 </div>
 
+
+
+<th:block th:include="fragments/headerinc :: angular"></th:block>
 </body>
 </html>

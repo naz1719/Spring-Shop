@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head lang="en">
-
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<head>
     <title>Spring Boot Example</title>
-
-    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+    <th:block th:include="fragments/headerinc :: head"></th:block>
 </head>
 <body>
 <div class="container">
-    <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <th:block th:include="fragments/header :: header"></th:block>
 
     <h2>Product Details</h2>
     <div>
@@ -32,6 +30,6 @@
         </form>
     </div>
 </div>
-
+<th:block th:include="fragments/headerinc :: angular"></th:block>
 </body>
 </html>

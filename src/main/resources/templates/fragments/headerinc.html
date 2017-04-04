@@ -3,12 +3,26 @@
 
 <head lang="en" th:fragment="head">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.3/angular-material.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+    <script>
+        angular.module('myApp', ['ngMaterial']);
+
+    </script>
 </head>
 
 <body>
+<div th:fragment="angular">
+    <!-- AngularJS Material Dependencies -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.js"></script>
 
+    <!-- AngularJS Material Javascript using GitCDN to load directly from `bower-material/master` -->
+    <script src="https://gitcdn.link/repo/angular/bower-material/master/angular-material.js"></script>
+</div>
 </body>
 
 </html>

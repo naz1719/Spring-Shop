@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-
-<head lang="en">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
-    <link href="../../static/css/style.css" th:href="@{css/style.css}" rel="stylesheet" media="screen"/>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
 </head>
-
 <body>
-<div class="container">
-    <div th:fragment="header">
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#" th:href="@{/}">Home</a>
-                    <ul class="nav navbar-nav">
-                        <li><a href="#" th:href="@{/products}">Products</a></li>
-                        <li><a href="#" th:href="@{/product/new}">Create new product</a></li>
-                    </ul>
-
-                </div>
-            </div>
-        </nav>
+<div th:fragment="header">
+<md-toolbar>
+    <div class="md-toolbar-tools">
+        <md-button th:href="@{/}" aria-label="Home">
+            Home
+        </md-button>
+        <md-button th:href="@{/products}" aria-label="Products">
+            Products
+        </md-button>
+        <md-button th:href="@{/product/new}" aria-label="Create new product">
+            Create new product
+        </md-button>
     </div>
+</md-toolbar>
 </div>
 </body>
 </html>
