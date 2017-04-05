@@ -39,7 +39,7 @@ public class UserController {
     @RequestMapping("user/{id}")
     public String showProduct(@PathVariable ObjectId id, Model model) {
         model.addAttribute("info", userRepository.findOne(id));
-        return "productInfo";
+        return "userInfo";
     }
     /**
      * -------------------Edit Product--------------------------------------------------------
