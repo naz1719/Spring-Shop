@@ -42,33 +42,31 @@ public class UserController {
         return "userInfo";
     }
     /**
-     * -------------------Edit Product--------------------------------------------------------
-     */
-    @RequestMapping("user/edit/{id}")
-    public String edit(@PathVariable User id, Model model) {
-        id =userRepository.findOne(id.getId());
-        model.addAttribute("product", id);
-        userRepository.save(id);
-        return "productform";
-    }
-
-    /**
      * -------------------New Product--------------------------------------------------------
      */
     @RequestMapping("user/new")
     public String newProduct(Model model) {
         model.addAttribute("user", new User());
-        return "productform";
+        return "user";
     }
 
-//    /**
-//     * -------------------Update Product--------------------------------------------------------
-//     */
-//    @RequestMapping(value = "product", method = RequestMethod.POST)
-//    public String saveProduct(User product) {
-//        userRepository.save(product);
-//        return "redirect:/product/" + product.getId();
-//    }
+    /**
+     * -------------------Edit Product--------------------------------------------------------
+     */
+    @RequestMapping("user/edit/{id}")
+    public String edit(@PathVariable ObjectId id, Model model) {
+        model.addAttribute("user", userRepository.findOne(id));
+        return "user";
+    }
+
+    /**
+     * -------------------Save Product--------------------------------------------------------
+     */
+    @RequestMapping(value = "user", method = RequestMethod.POST)
+    public String saveProduct(User product) {
+        userRepository.save(product);
+        return "redirect:/user/" + product.getId();
+    }
 
     /**
      * -------------------Delete Product--------------------------------------------------------
