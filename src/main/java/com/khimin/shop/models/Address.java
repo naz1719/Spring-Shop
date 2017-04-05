@@ -15,6 +15,7 @@
  */
 package com.khimin.shop.models;
 
+import com.khimin.shop.core.AbstractDocument;
 import lombok.Getter;
 import org.springframework.util.Assert;
 
@@ -22,7 +23,7 @@ import org.springframework.util.Assert;
  * An address.
  */
 @Getter
-public class Address {
+public class Address extends AbstractDocument {
 
     private final String street, city, country;
 

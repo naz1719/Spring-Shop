@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<head>
+    <title>Title</title>
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+<div class="container">
+    <th:block th:include="fragments/header :: header"></th:block>
+
+    <div th:if="${not #lists.isEmpty(users)}">
+        <h2>Product List</h2>
+        <table class="table table-striped">
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Country</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <!--/*@thymesVar id="users" type="com.khimin.shop.models.User"*/-->
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}"><a href="/user/${user.id}">Id</a></td>
+                <td th:text="${user.firstname}">descirption</td>
+                <td th:text="${user.lastname}">price</td>
+                <td th:text="${user.email}">price</td>
+                <td th:text="${user.password}">price</td>
+                <td th:text="${user.country}">price</td>
+                <td><a th:href="${ '/user/' + user.id}">View</a></td>
+                <td><a th:href="${'/user/edit/' + user.id}">Edit</a></td>
+                <td><a th:href="${'/user/delete/' + user.id}">Delete</a></td>
+            </tr>
+        </table>
+    </div>
+    <nav>
+        <ul class="pagination" th:with="total = ${users.totalPages}">
+            <li th:if="${users.hasPrevious()}">
+                <a th:href="@{/products(page=${users.previousPageable().pageNumber},size=${users.size})}"
+                   aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li th:each="page : ${#numbers.sequence(0, total - 1)}"><a
+                    th:href="@{/users(page=${page},size=${users.size})}" th:text="${page + 1}">1</a></li>
+            <li th:if="${users.hasNext()}">
+                <a th:href="@{/users(page=${users.nextPageable().pageNumber},size=${users.size})}"
+                   aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+
+
+<th:block th:include="fragments/headerinc :: angular"></th:block>
+</body>
+</html>
