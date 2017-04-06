@@ -1,14 +1,11 @@
 package com.khimin.shop;
 
-import com.khimin.shop.models.Customer;
-import com.khimin.shop.models.Product;
-import com.khimin.shop.repositories.ProductRepository;
+import com.khimin.shop.models.User;
+import com.khimin.shop.repositories.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -24,19 +21,18 @@ import static org.hamcrest.Matchers.is;
 public class MongoTest {
 
     @Autowired
-    ProductRepository productRepository;
+    UserRepository userRepository;
+
     @Test
     public void readsFirstPageCorrectly() {
-        Page<Product> persons = productRepository.findAll(new PageRequest(0, 10));
+        Page<User> persons = userRepository.findAll(new PageRequest(0, 10));
         assertThat(persons.isFirst(), is(true));
     }
+
     @Test
-    public void testMongoOpertation(){
-        Customer orest = new Customer("Orest","Bobko", null);
-        productRepository.exists(orest.getId());
-        ExampleMatcher matcher = ExampleMatcher.matching()
-                .withIncludeNullValues();
-        Example<Customer> example = Example.of(orest, matcher);
+    public void testMongoOpertation() {
+        User nazar = new User("Nazar", "Khimin", "khimin1719@gmail.com", "123456", "Ukraine");
+        userRepository.exists(nazar.getId());
     }
 }
 

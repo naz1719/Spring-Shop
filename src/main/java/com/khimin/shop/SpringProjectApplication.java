@@ -12,14 +12,6 @@ import javax.annotation.PostConstruct;
 public class SpringProjectApplication {
 
     @Autowired
-    ProductRepository productRepository;
-    @Autowired
-    OrderRepository orderRepository;
-    @Autowired
-    CustomerRepository customerRepository;
-    @Autowired
-    CategoryRepository categoryRepository;
-    @Autowired
     UserRepository userRepository;
 
     public static void main(String[] args) {
@@ -28,23 +20,10 @@ public class SpringProjectApplication {
 
     @PostConstruct
     public void initial() {
-        productRepository.deleteAll();
-        orderRepository.deleteAll();
-        customerRepository.deleteAll();
+
         userRepository.deleteAll();
-        userRepository.save(new User("Nazar","Khimin","khimin1719@gmail.com","123456","Ukraine"));
-        userRepository.save(new User("Nazar","Khimin","khimin1719@gmail.com","123456","Ukraine"));
-        userRepository.save(new User("Nazar","Khimin","khimin1719@gmail.com","123456","Ukraine"));
-        Category category = new Category();
-        category.setName("t-shirt");
-        productRepository.save(new Product("Barbuer", 2000, category));
-        productRepository.save(new Product("Lacosta", 2000, category));
-        Address OrestAddress = new Address("Lviv","Gasheka 15a","03907");
-        Customer OrestCustomer = new Customer("Orest","Bobko",OrestAddress);
-        Order order = new Order();
-        order.setCustomer(OrestCustomer);
-        order.add(new Product("Barbuer", 2000, category));
-        order.add(new Product("Lacosta", 2000, category));
-        orderRepository.save(order);
+        userRepository.save(new User("Nazar", "Khimin", "khimin1719@gmail.com", "123456", "Ukraine"));
+        userRepository.save(new User("Nazar", "Khimin", "khimin1719@gmail.com", "123456", "Ukraine"));
+        userRepository.save(new User("Nazar", "Khimin", "khimin1719@gmail.com", "123456", "Ukraine"));
     }
 }
