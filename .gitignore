@@ -1,5 +1,6 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
+/src/main/resources/static/bower_components/
 
 ### STS ###
 .apt_generated

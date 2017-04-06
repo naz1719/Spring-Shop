@@ -3,12 +3,20 @@
 
 <head lang="en" th:fragment="head">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen" />
+    <link href="../static/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
     <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" media="screen"/>
+    <link rel="stylesheet" href="../static/bower_components/angular-material/angular-material.min.css" th:href="@{/bower_components/angular-material/angular-material.min.css}"/>
 </head>
 
 <body>
+<div th:fragment="angular">
+    <script src="../static/bower_components/angular/angular.js" th:src="@{/bower_components/angular/angular.js}"></script>
+    <script src="../static/bower_components/angular-animate/angular-animate.js" th:src="@{/bower_components/angular-animate/angular-animate.js}"></script>
+    <script src="../static/bower_components/angular-aria/angular-aria.js" th:src="@{/bower_components/angular-aria/angular-aria.js}"></script>
 
+    <script src="../static/bower_components/angular-material/angular-material.js" th:src="@{/bower_components/angular-material/angular-material.js}"></script>
+    <script src="../static/js/index.js" th:src="@{/js/index.js}"></script>
+</div>
 </body>
 
 </html>

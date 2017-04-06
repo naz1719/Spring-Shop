@@ -1,10 +1,7 @@
 package com.khimin.shop;
 
 import com.khimin.shop.models.*;
-import com.khimin.shop.repositories.CategoryRepository;
-import com.khimin.shop.repositories.CustomerRepository;
-import com.khimin.shop.repositories.OrderRepository;
-import com.khimin.shop.repositories.ProductRepository;
+import com.khimin.shop.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -22,6 +19,8 @@ public class SpringProjectApplication {
     CustomerRepository customerRepository;
     @Autowired
     CategoryRepository categoryRepository;
+    @Autowired
+    UserRepository userRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(SpringProjectApplication.class, args);
@@ -32,6 +31,10 @@ public class SpringProjectApplication {
         productRepository.deleteAll();
         orderRepository.deleteAll();
         customerRepository.deleteAll();
+        userRepository.deleteAll();
+        userRepository.save(new User("Nazar","Khimin","khimin1719@gmail.com","123456","Ukraine"));
+        userRepository.save(new User("Nazar","Khimin","khimin1719@gmail.com","123456","Ukraine"));
+        userRepository.save(new User("Nazar","Khimin","khimin1719@gmail.com","123456","Ukraine"));
         Category category = new Category();
         category.setName("t-shirt");
         productRepository.save(new Product("Barbuer", 2000, category));
