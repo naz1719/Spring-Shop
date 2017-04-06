@@ -21,9 +21,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class UserController {
- @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     /**
      * -------------------Retrieve All Products--------------------------------------------------------
@@ -63,9 +66,9 @@ public class UserController {
      * -------------------Save Product--------------------------------------------------------
      */
     @RequestMapping(value = "user", method = RequestMethod.POST)
-    public String saveProduct(User product) {
-        userRepository.save(product);
-        return "redirect:/user/" + product.getId();
+    public String saveUser(User user) {
+        userRepository.save(user);
+        return "redirect:/user/" + user.getId();
     }
 
     /**
