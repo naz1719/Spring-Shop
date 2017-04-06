@@ -1,8 +1,12 @@
 package com.khimin.shop.models;
 
-import com.khimin.shop.core.AbstractDocument;
-import lombok.*;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.khimin.shop.core.AbstractEntity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.Entity;
 
 /**
  * Created by nazar on 4/4/17.
@@ -11,8 +15,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "user")
-public class User extends AbstractDocument {
+@Entity(name = "user")
+public class User extends AbstractEntity {
 
     private String firstname, lastname;
     private String email;

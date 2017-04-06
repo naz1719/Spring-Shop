@@ -18,7 +18,7 @@ import static org.hamcrest.Matchers.is;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class MongoTest {
+public class JpaTest {
 
     @Autowired
     UserRepository userRepository;

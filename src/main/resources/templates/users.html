@@ -21,14 +21,13 @@
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
-            <!--/*@thymesVar id="users" type="com.khimin.shop.models.User"*/-->
             <tr th:each="user : ${users}">
                 <td th:text="${user.id}"><a href="/user/${user.id}">Id</a></td>
-                <td th:text="${user.firstname}">descirption</td>
-                <td th:text="${user.lastname}">price</td>
-                <td th:text="${user.email}">price</td>
-                <td th:text="${user.password}">price</td>
-                <td th:text="${user.country}">price</td>
+                <td th:text="${user.firstname}">firstname</td>
+                <td th:text="${user.lastname}">lastname</td>
+                <td th:text="${user.email}">email</td>
+                <td th:text="${user.password}">password</td>
+                <td th:text="${user.country}">country</td>
                 <td><a th:href="${ '/user/' + user.id}">View</a></td>
                 <td><a th:href="${'/user/edit/' + user.id}">Edit</a></td>
                 <td><a th:href="${'/user/delete/' + user.id}">Delete</a></td>

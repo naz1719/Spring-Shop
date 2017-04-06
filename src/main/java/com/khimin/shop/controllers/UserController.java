@@ -2,7 +2,6 @@ package com.khimin.shop.controllers;
 
 import com.khimin.shop.models.User;
 import com.khimin.shop.repositories.UserRepository;
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,17 +31,19 @@ public class UserController {
      */
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     @ModelAttribute("users")
-    public Page<User> list(@PageableDefault(size = 8, direction = Sort.Direction.ASC, sort = "price") Pageable pageable) {
+    public Page<User> list(@PageableDefault(size = 8, direction = Sort.Direction.ASC, sort = "firstname") Pageable pageable) {
         return userRepository.findAll(pageable);
     }
+
     /**
      * -------------------Retrieve Single Products--------------------------------------------------------
      */
     @RequestMapping("user/{id}")
-    public String showProduct(@PathVariable ObjectId id, Model model) {
+    public String showProduct(@PathVariable Long id, Model model) {
         model.addAttribute("info", userRepository.findOne(id));
         return "userInfo";
     }
+
     /**
      * -------------------New Product--------------------------------------------------------
      */
@@ -56,7 +57,7 @@ public class UserController {
      * -------------------Edit Product--------------------------------------------------------
      */
     @RequestMapping("user/edit/{id}")
-    public String edit(@PathVariable ObjectId id, Model model) {
+    public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("user", userRepository.findOne(id));
         return "user";
     }
@@ -74,7 +75,7 @@ public class UserController {
      * -------------------Delete Product--------------------------------------------------------
      */
     @RequestMapping("user/delete/{id}")
-    public String delete(@PathVariable ObjectId id) {
+    public String delete(@PathVariable Long id) {
         userRepository.delete(id);
         return "redirect:/users";
     }
