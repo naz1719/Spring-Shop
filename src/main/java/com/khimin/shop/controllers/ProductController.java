@@ -2,6 +2,8 @@ package com.khimin.shop.controllers;
 
 import com.khimin.shop.models.Product;
 import com.khimin.shop.repositories.ProductRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class ProductController {
+    private static Logger LOG = LoggerFactory.getLogger(ProductController.class);
 
     private ProductRepository productRepository;
 
@@ -27,14 +30,11 @@ public class ProductController {
 
     /**
      * List all products.
-     *
-     * @param model
-     * @return
      */
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String list(@PageableDefault(size = 8, direction = Sort.Direction.ASC, sort = "price") Pageable pageable, Model model) {
         model.addAttribute("products", productRepository.findAll(pageable));
-        System.out.println("Returning rpoducts:");
+        LOG.info("All products");
         return "products";
     }
 
@@ -48,6 +48,7 @@ public class ProductController {
     @RequestMapping("product/{id}")
     public String showProduct(@PathVariable Long id, Model model) {
         model.addAttribute("product", productRepository.findOne(id));
+        LOG.info("Product id: "+id);
         return "productshow";
     }
 
@@ -55,6 +56,7 @@ public class ProductController {
     @RequestMapping("product/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("product",  productRepository.findOne(id));
+        LOG.info("Edited product id: "+id);
         return "productform";
     }
 
@@ -79,6 +81,7 @@ public class ProductController {
     @RequestMapping(value = "product", method = RequestMethod.POST)
     public String saveProduct(Product product) {
         productRepository.save(product);
+        LOG.info("Save product: "+product);
         return "redirect:/product/" + product.getId();
     }
 
@@ -91,6 +94,7 @@ public class ProductController {
     @RequestMapping("product/delete/{id}")
     public String delete(@PathVariable Long id) {
         productRepository.delete(id);
+        LOG.info("Deleted product id : "+ id);
         return "redirect:/products";
     }
 
