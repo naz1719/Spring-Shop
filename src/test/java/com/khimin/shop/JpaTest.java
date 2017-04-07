@@ -1,7 +1,7 @@
 package com.khimin.shop;
 
-import com.khimin.shop.models.User;
-import com.khimin.shop.repositories.UserRepository;
+import com.khimin.shop.models.Product;
+import com.khimin.shop.repositories.ProductRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +21,19 @@ import static org.hamcrest.Matchers.is;
 public class JpaTest {
 
     @Autowired
-    UserRepository userRepository;
+    ProductRepository productRepository;
 
     @Test
     public void readsFirstPageCorrectly() {
-        Page<User> persons = userRepository.findAll(new PageRequest(0, 10));
+        Page<Product> persons = productRepository.findAll(new PageRequest(0, 10));
         assertThat(persons.isFirst(), is(true));
     }
 
     @Test
     public void testMongoOpertation() {
-        User nazar = new User("Nazar", "Khimin", "khimin1719@gmail.com", "123456", "Ukraine");
-        userRepository.exists(nazar.getId());
+//        User nazar = new User("Nazar", "Khimin", "khimin1719@gmail.com", "123456", "Ukraine");
+//        userRepository.exists(nazar.getId());
     }
 }
+
 
