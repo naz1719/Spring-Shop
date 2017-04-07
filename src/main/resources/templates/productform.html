@@ -7,31 +7,32 @@
 
 </head>
 <body>
-    <th:block th:include="fragments/header :: header"></th:block>
+<th:block th:include="fragments/header :: header"></th:block>
 
-<h2>Product Details</h2>
-    <div>
-        <form class="form-horizontal" th:object="${product}" th:action="@{/product}" method="post">
-            <input type="hidden" th:field="*{id}"/>
-            <input type="hidden" th:field="*{version}"/>
-            <md-input-container>
-                <label>Product Id</label>
-                <input type="text" th:field="*{productId}">
-            </md-input-container>
-            <md-input-container>
-                <label>Name</label>
-                <input type="text" th:field="*{name}">
-            </md-input-container>
-            <md-input-container>
-                <label>Price</label>
-                <input type="text" th:field="*{price}">
-            </md-input-container>
 
-            <div class="row">
-                <button type="submit" class="btn btn-default">Submit</button>
-            </div>
-        </form>
-    </div>
-    <th:block th:include="fragments/headerinc :: angular"></th:block>
+<form  th:object="${product}" th:action="@{/product}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <input type="hidden" th:field="*{version}"/>
+    <md-content  layout="column"  layout-align="start start" flex layout-padding>
+    <span flex class="md-headline">Product Details</span>
+        <div md-theme="green" flex>
+        <md-input-container>
+            <label>Product Id</label>
+            <input type="text" th:field="*{productId}">
+        </md-input-container>
+        <md-input-container>
+            <label>Name</label>
+            <input type="text" th:field="*{name}">
+        </md-input-container>
+        <md-input-container>
+            <label>Price</label>
+            <input type="text" th:field="*{price}">
+        </md-input-container>
+
+        <md-button type='submit' class="md-raised md-primary">Submit</md-button>
+        </div>
+    </md-content>
+</form>
+<th:block th:include="fragments/headerinc :: angular"></th:block>
 </body>
 </html>
