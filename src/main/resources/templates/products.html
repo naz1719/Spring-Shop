@@ -3,6 +3,8 @@
 <head>
     <title>Title</title>
 </head>
+<th:block th:include="fragments/headerinc :: head"></th:block>
+
 <body  layout="column">
 
 <div th:if="${not #lists.isEmpty(products)}">
@@ -49,6 +51,7 @@
     </ul>
 </nav>
 
+<th:block th:include="fragments/headerinc :: angular"></th:block>
 
 </body>
 </html>
