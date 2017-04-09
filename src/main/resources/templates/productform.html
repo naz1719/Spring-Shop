@@ -3,11 +3,9 @@
 <head lang="en">
 
     <title>Spring Boot Example</title>
-    <th:block th:include="fragments/headerinc :: head"></th:block>
 
 </head>
 <body>
-<th:block th:include="fragments/header :: header"></th:block>
 
 
 <form  th:object="${product}" th:action="@{/product}" method="post">
@@ -33,6 +31,5 @@
         </div>
     </md-content>
 </form>
-<th:block th:include="fragments/headerinc :: angular"></th:block>
 </body>
 </html>
