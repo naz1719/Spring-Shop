@@ -9,7 +9,11 @@
     - npm install -g bower 
     - npm install -g bowerrc
  
- 
+ ## Spring REST, HATEOAS
+ spring.data.rest.base-path=/api
+
+        localhost:8080/api
+        
  ## Deployment
  To run locally execute
  
