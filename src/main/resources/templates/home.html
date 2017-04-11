@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Example</title>
+    </head>
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+    <body>
+    <th:block th:include="fragments/header :: header"></th:block>
+
+    <h1>Welcome!</h1>
+        
+        <p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+        <th:block th:include="fragments/headerinc :: angular"></th:block>
+    </body>
+</html>
