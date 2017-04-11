@@ -32,8 +32,7 @@
       nekohtml:1.9.22'  
 
 ## Built With
-  * [Spring Shell](https://github.com/spring-projects/spring-shell) - Spring Shell is an shell skeleton that can be easily extended with commands using a Spring based programming model. 
-  * [Spring Data Mongo](https://github.com/spring-projects/spring-data-mongodb) - Spring Data’s mission is to provide a familiar and consistent, Spring-based programming model for data access while still retaining the special traits of the underlying data store. 
+  * [Spring Data JPA](https://github.com/spring-projects/spring-data-mongodb) - Spring Data’s mission is to provide a familiar and consistent, Spring-based programming model for data access while still retaining the special traits of the underlying data store. 
 ## Authors
 * **Khimin Nazar** - *Initial work* - [Khimin Nazar](https://github.com/naz1719)
 
