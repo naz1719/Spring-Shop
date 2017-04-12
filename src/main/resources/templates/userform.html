@@ -9,23 +9,18 @@
 <body>
 <th:block th:include="fragments/header :: header"></th:block>
 
-<form th:object="${product}" th:action="@{/product}" method="post">
+<form th:object="${user}" th:action="@{/user}" method="post">
     <input type="hidden" th:field="*{id}"/>
-    <input type="hidden" th:field="*{version}"/>
     <md-content layout="column" layout-align="start start" flex layout-padding>
         <span flex class="md-headline">Product Details</span>
         <div md-theme="green" flex>
             <md-input-container>
-                <label>Product Id</label>
-                <input type="text" th:field="*{productId}">
-            </md-input-container>
-            <md-input-container>
                 <label>Name</label>
-                <input type="text" th:field="*{name}">
+                <input type="text" th:field="*{username}">
             </md-input-container>
             <md-input-container>
                 <label>Price</label>
-                <input type="text" th:field="*{price}">
+                <input type="text" th:field="*{password}">
             </md-input-container>
 
             <md-button type='submit' class="md-raised md-primary">Submit</md-button>
