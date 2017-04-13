@@ -58,7 +58,7 @@ public class UserController {
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("user",  userRepository.findOne(id));
         LOG.info("Edited user id: "+id);
-        return "userform";
+        return "userEditForm";
     }
 
     /**

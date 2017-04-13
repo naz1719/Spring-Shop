@@ -8,40 +8,19 @@
 </head>
 <body>
 <th:block th:include="fragments/header :: header"></th:block>
-
-<form th:object="${user}" th:action="@{/user}" method="post">
-    <input type="hidden" th:field="*{id}"/>
-    <md-content layout="column" layout-align="start start" flex layout-padding>
-        <span flex class="md-headline">Product Details</span>
-        <div md-theme="green" flex>
-            <md-input-container>
-                <label>Email</label>
-                <input type="text" th:field="*{email}">
-            </md-input-container><md-input-container>
-                <label>Name</label>
-                <input type="text" th:field="*{username}">
-            </md-input-container>
-            <md-input-container>
-                <label>Password</label>
-                <input type="text" th:field="*{password}">
-            </md-input-container>
-
-            <md-button type='submit' class="md-raised md-primary">Submit</md-button>
-        </div>
-    </md-content>
-</form>
 <div ng-controller="AppCtrl"  ng-cloak="" class="SingUpTemplate" style=" margin: 0 auto; width: 680px;">
 
     <md-tabs style="height: auto" md-dynamic-height md-stretch-tabs="always" md-border-bottom>
         <md-tab label="Registration">
-            <form name="userForm">
+            <form name="userForm" th:object="${user}" th:action="@{/user}" method="post">
                 <md-dialog-content style="background-color: white">
                     <div class="md-dialog-content" style="margin-top:20px">
+                        <input type="hidden" th:field="*{id}"/>
                         <md-input-container class="md-icon-float md-block" md-theme="docs-dark">
                             <!-- Use floating label instead of placeholder -->
                             <label>Email</label>
                             <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
-                            <input name="email" ng-model="UserData.email" type="email" required/>
+                            <input th:field="*{email}" name="email" ng-model="UserData.email" type="email" required/>
                             <div ng-messages="userForm.email.$error">
                                 <div ng-message="required">This is required!</div>
                                 <div ng-message="email">Введіть електронну адресу у форматі someone@example.com
@@ -54,7 +33,7 @@
                             <!-- Use floating label instead of placeholder -->
                             <label>Login name</label>
                             <md-icon md-svg-src="img/icons/ic_person_24px.svg" class="name"></md-icon>
-                            <input name="login" ng-model="UserData.login" required/>
+                            <input th:field="*{username}" name="login" ng-model="UserData.login" required/>
                             <div ng-messages="userForm.login.$error">
                                 <div ng-message="required">This is required!</div>
                             </div>
@@ -68,7 +47,7 @@
                                     <label>Password</label>
                                     <md-icon
                                             md-svg-src="bower_components/material-design-icons/action/svg/production/ic_https_24px.svg"></md-icon>
-                                    <input minlength="6" md-maxlength="15" name="Password"
+                                    <input th:field="*{password}" minlength="6" md-maxlength="15" name="Password"
                                            ng-model="UserData.password" required
                                            data-ng-class="{'ng-invalid':userForm.ConfPas.$error.match}"
                                            type="{{inputType}}"/>
@@ -90,7 +69,7 @@
                                     <input minlength="6" md-maxlength="15" name="ConfPas"
                                            data-match="UserData.password" ng-model="UserData.ConfPas" required
                                            type="{{inputType}}"/>
-                                    <div ng-messages="userForm    .ConfPas.$error">
+                                    <div ng-messages="userForm.ConfPas.$error">
                                         <div ng-message="required">This is required!</div>
                                         <div ng-message="match">Passwords do not match!</div>
                                         <div ng-message="minlength">Your password too short!(min 6)</div>
@@ -100,7 +79,7 @@
                             </div>
                             <md-switch ng-model="passwordCheckbox" ng-click="hideShowPassword()"
                                        style="margin-left: 30px">
-
+                                <label>Show/Hide</label>
                                 <div class="hint">
                                     <label ng-if="passwordCheckbox"></label>
                                     <label ng-if="!passwordCheckbox"></label>
@@ -160,8 +139,11 @@
 
                             <md-switch style="margin-top: -10px;" ng-model="passwordCheckbox"
                                        ng-click="hideShowPassword()">
-                                <label ng-if="passwordCheckbox"></label>
-                                <label ng-if="!passwordCheckbox"></label>
+                                <label>Show/Hide</label>
+                                <div class="hint">
+                                    <label ng-if="passwordCheckbox"></label>
+                                    <label ng-if="!passwordCheckbox"></label>
+                                </div>
                             </md-switch>
                         </div>
 

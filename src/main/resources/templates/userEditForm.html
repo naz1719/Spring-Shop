@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<head lang="en">
+
+    <title>Spring Boot Example</title>
+
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+<th:block th:include="fragments/header :: header"></th:block>
+
+
+<form th:object="${user}" th:action="@{/user}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+    <md-content layout="column" layout-align="start start" flex layout-padding>
+        <span flex class="md-headline">Product Details</span>
+        <div md-theme="green" flex>
+            <md-input-container>
+                <label>Email</label>
+                <input type="text" th:field="*{email}">
+            </md-input-container>
+            <md-input-container>
+                <label>Name</label>
+                <input type="text" th:field="*{username}">
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input type="text" th:field="*{password}">
+            </md-input-container>
+
+            <md-button type='submit' class="md-raised md-primary">Submit</md-button>
+        </div>
+    </md-content>
+</form>
+<th:block th:include="fragments/headerinc :: angular"></th:block>
+
+</body>
+</html>
