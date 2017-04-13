@@ -16,6 +16,9 @@
   ],
   "dependencies": {
     "angular-material": "^1.1.3",
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "angular-validation-match": "^1.9.0",
+    "angular-messages": "^1.6.4",
+    "svg-assets-cache.js": "svg-assets-cache#*"
   }
 }
