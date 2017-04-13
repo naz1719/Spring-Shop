@@ -13,6 +13,7 @@
     <table class="table table-striped">
         <tr>
             <th>Id</th>
+            <th>Email</th>
             <th>username</th>
             <th>password</th>
             <th>View</th>
@@ -21,6 +22,7 @@
         </tr>
         <tr th:each="user : ${users}">
             <td th:text="${user.id}"><a href="/users/${users.id}">Id</a></td>
+            <td th:text="${user.email}">Email</td>
             <td th:text="${user.username}">username</td>
             <td th:text="${user.password}">Password</td>
             <td><a th:href="${ '/user/' + user.id}">View</a></td>

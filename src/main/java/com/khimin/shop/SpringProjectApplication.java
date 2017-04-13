@@ -22,7 +22,7 @@ public class SpringProjectApplication {
             productRepository.deleteAll();
             productRepository.save(new Product(5, "id", "Nazar", 50));
             userRepository.deleteAll();
-            userRepository.save(new User("Naz","123456"));
+            userRepository.save(new User("Naz","khimin1719@gmail.com","123456"));
         };
     }
 }
