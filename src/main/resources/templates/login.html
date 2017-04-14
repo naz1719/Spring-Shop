@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
->
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
 <head>
     <title>Spring Security Example </title>
 </head>
@@ -13,14 +12,34 @@
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <input type="hidden"                        6
+<!--<form th:action="@{/login}" method="post">-->
+    <!--<div><label> User Name : <input type="text" name="username"/> </label></div>-->
+    <!--<div><label> Password: <input type="password" name="password"/> </label></div>-->
+    <!--<input type="hidden"                        -->
+           <!--name="${_csrf.parameterName}"-->
+           <!--value="${_csrf.token}"/>-->
+    <!--<div><input type="submit" value="Sign In"/></div>-->
+<!--</form>-->
+<form  th:action="@{/login}" method="post">
+    <input type="hidden"
            name="${_csrf.parameterName}"
            value="${_csrf.token}"/>
-    <div><input type="submit" value="Sign In"/></div>
+    <md-content layout="column" layout-align="start start" flex layout-padding>
+        <span flex class="md-headline">Product Details</span>
+        <div md-theme="green" flex>
+            <md-input-container>
+                <label>Username</label>
+                <input type="text" name="username">
+            </md-input-container>
+            <md-input-container>
+                <label>Password</label>
+                <input type="text" name="password">
+            </md-input-container>
+            <md-button type='submit' class="md-raised md-primary">Submit</md-button>
+        </div>
+    </md-content>
 </form>
+
 <th:block th:include="fragments/headerinc :: angular"></th:block>
 </body>
 </html>

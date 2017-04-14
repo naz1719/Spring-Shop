@@ -1,6 +1,7 @@
 package com.khimin.shop;
 
 import com.khimin.shop.models.Product;
+import com.khimin.shop.models.Role;
 import com.khimin.shop.models.User;
 import com.khimin.shop.repositories.ProductRepository;
 import com.khimin.shop.repositories.UserRepository;
@@ -22,7 +23,12 @@ public class SpringProjectApplication {
             productRepository.deleteAll();
             productRepository.save(new Product(5, "id", "Nazar", 50));
             userRepository.deleteAll();
-            userRepository.save(new User("Naz","khimin1719@gmail.com","123456"));
+            User admin = new User("Admin","nazar.khimin@gmail.com","khimin1719");
+            admin.setRole(Role.ADMIN);
+            User user = new User("User","khimin1719@gmail.com","123456");
+            admin.setRole(Role.USER);
+            userRepository.save(user);
+            userRepository.save(admin);
         };
     }
 }
