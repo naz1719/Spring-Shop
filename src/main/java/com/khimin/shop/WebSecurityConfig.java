@@ -1,5 +1,6 @@
 package com.khimin.shop;
 
+import com.khimin.shop.models.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,12 +18,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/products","/users").permitAll()
+                .antMatchers("/").permitAll()
+                .antMatchers( "/products").hasRole(String.valueOf(Role.USER))
+                .antMatchers("/users/**").hasRole(String.valueOf(Role.ADMIN))
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/users")
+                .defaultSuccessUrl("/")
                 .permitAll()
                 .and()
             .logout()
@@ -40,7 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .inMemoryAuthentication()
-                .withUser("user@gmail.com").password("password").roles("USER");
+                .withUser("user").password("password").roles(String.valueOf(Role.USER)).and()
+                .withUser("admin").password("password").roles(String.valueOf(Role.ADMIN));
     }
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {

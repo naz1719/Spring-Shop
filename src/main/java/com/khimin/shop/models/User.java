@@ -2,6 +2,7 @@ package com.khimin.shop.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
 
@@ -31,5 +32,9 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public void setPassword(String password) {
+        this.password = new BCryptPasswordEncoder().encode(password);
     }
 }

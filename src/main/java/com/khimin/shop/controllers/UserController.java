@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,7 +48,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("user/{id}")
-    public String showProduct(@PathVariable Long id, Model model) {
+    public String showProduct(@PathVariable Long id, Model model)throws UsernameNotFoundException  {
         model.addAttribute("user", userRepository.findOne(id));
         LOG.info("User id: "+id);
         return "usershow";
@@ -55,7 +56,7 @@ public class UserController {
 
     // Afficher le formulaire de modification du Product
     @RequestMapping("user/edit/{id}")
-    public String edit(@PathVariable Long id, Model model) {
+    public String edit(@PathVariable Long id, Model model) throws UsernameNotFoundException {
         model.addAttribute("user",  userRepository.findOne(id));
         LOG.info("Edited user id: "+id);
         return "userEditForm";
@@ -80,7 +81,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "user", method = RequestMethod.POST)
-    public String saveProduct(User user) {
+    public String saveProduct(User user) throws UsernameNotFoundException {
         userRepository.save(user);
         LOG.info("Save user: "+user);
         return "redirect:/user/" + user.getId();
@@ -93,7 +94,7 @@ public class UserController {
      * @return
      */
     @RequestMapping("user/delete/{id}")
-    public String delete(@PathVariable Long id) {
+    public String delete(@PathVariable Long id) throws UsernameNotFoundException {
         userRepository.delete(id);
         LOG.info("Deleted user id : "+ id);
         return "redirect:/users";
