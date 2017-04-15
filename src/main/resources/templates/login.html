@@ -21,9 +21,7 @@
     <!--<div><input type="submit" value="Sign In"/></div>-->
 <!--</form>-->
 <form  th:action="@{/login}" method="post">
-    <input type="hidden"
-           name="${_csrf.parameterName}"
-           value="${_csrf.token}"/>
+
     <md-content layout="column" layout-align="start start" flex layout-padding>
         <span flex class="md-headline">Product Details</span>
         <div md-theme="green" flex>
