@@ -18,14 +18,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/","/products").permitAll()
+                .antMatchers("/","/products","/default").permitAll()
                 .antMatchers( "/product/?").hasRole(String.valueOf(Role.USER))
                 .antMatchers("/**").hasRole(String.valueOf(Role.ADMIN))
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
                 .loginPage("/login")
-                .defaultSuccessUrl("/")
+                .defaultSuccessUrl("/default")
                 .permitAll()
                 .and()
             .logout()
@@ -43,10 +43,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth
-            .inMemoryAuthentication()
+                .inMemoryAuthentication()
                 .withUser("user").password("password").roles(String.valueOf(Role.USER)).and()
                 .withUser("admin").password("password").roles(String.valueOf(Role.ADMIN));
     }
+
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
