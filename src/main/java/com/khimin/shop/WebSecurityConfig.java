@@ -19,8 +19,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
             .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers( "/products").hasRole(String.valueOf(Role.USER))
-                .antMatchers("/users/**").hasRole(String.valueOf(Role.ADMIN))
+                .antMatchers( "/products","/product/?").hasRole(String.valueOf(Role.USER))
+                .antMatchers("/users","/product/**","user/**").hasRole(String.valueOf(Role.ADMIN))
                 .anyRequest().authenticated()
                 .and()
             .formLogin()
@@ -29,7 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
             .logout()
-                .permitAll();
+                .permitAll().and()
+            .exceptionHandling().accessDeniedPage("/accessDenied");
     }
 
     @Override
