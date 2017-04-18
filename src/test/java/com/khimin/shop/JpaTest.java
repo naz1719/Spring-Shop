@@ -1,7 +1,10 @@
 package com.khimin.shop;
 
 import com.khimin.shop.models.Product;
+import com.khimin.shop.models.Role;
+import com.khimin.shop.models.User;
 import com.khimin.shop.repositories.ProductRepository;
+import com.khimin.shop.repositories.UserRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +15,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by nazar on 3/7/17.
@@ -22,6 +26,8 @@ public class JpaTest {
 
     @Autowired
     ProductRepository productRepository;
+    @Autowired
+    UserRepository userRepository;
 
     @Test
     public void readsFirstPageCorrectly() {
@@ -30,9 +36,17 @@ public class JpaTest {
     }
 
     @Test
-    public void testMongoOpertation() {
-//        User nazar = new User("Nazar", "Khimin", "khimin1719@gmail.com", "123456", "Ukraine");
-//        userRepository.exists(nazar.getId());
+    public void testUserOpertation() {
+        User nazar = new User("us","us@gmail.com","123456", Role.ADMIN);
+        userRepository.save(nazar);
+        assertEquals(nazar, userRepository.findByUsername("us"));
+
+    }
+    @Test
+    public void testProductOperation(){
+        Product product = new Product(1,"v","bto",50);
+        productRepository.save(product);
+        assertEquals(product, productRepository.findOne(product.getId()));
     }
 }
 

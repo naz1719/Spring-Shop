@@ -2,6 +2,7 @@ package com.khimin.shop.models;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -12,11 +13,8 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @Entity
-public class Product {
+public class Product extends AbstractPersistable<Long> {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 
     @Version
     private Integer version;
