@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -68,7 +70,7 @@ public class UserController {
      * @param model
      * @return
      */
-    @RequestMapping("user/new")
+    @RequestMapping("registration")
     public String newProduct(Model model) {
         model.addAttribute("user", new User());
         return "userform";
