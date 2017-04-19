@@ -25,7 +25,12 @@ public class UserController {
     private static Logger LOG = LoggerFactory.getLogger(ProductController.class);
 
     private UserService userService;
+    private UserRepository userRepository;
 
+    @Autowired
+    public void setUserRepository(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     @Autowired
     public void setUserService(UserService userService) {
@@ -37,7 +42,7 @@ public class UserController {
      */
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String list(@PageableDefault(size = 8, direction = Sort.Direction.ASC, sort = "username") Pageable pageable, Model model) {
-        model.addAttribute("users", userService.findAllbyPage(pageable));
+        model.addAttribute("users", userRepository.findAll(pageable));
         LOG.info("All users");
         return "users";
     }
@@ -51,7 +56,7 @@ public class UserController {
      */
     @RequestMapping("user/{id}")
     public String showProduct(@PathVariable Long id, Model model) throws UsernameNotFoundException {
-        model.addAttribute("user", userService.findOne(id));
+        model.addAttribute("user", userRepository.findOne(id));
         LOG.info("User id: " + id);
         return "usershow";
     }
@@ -59,7 +64,7 @@ public class UserController {
     // Afficher le formulaire de modification du Product
     @RequestMapping("user/edit/{id}")
     public String edit(@PathVariable Long id, Model model) throws UsernameNotFoundException {
-        model.addAttribute("user", userService.findOne(id));
+        model.addAttribute("user", userRepository.findOne(id));
         LOG.info("Edited user id: " + id);
         return "userEditForm";
     }
@@ -97,7 +102,7 @@ public class UserController {
      */
     @RequestMapping("user/delete/{id}")
     public String delete(@PathVariable Long id) throws UsernameNotFoundException {
-        userService.delete(id);
+        userRepository.delete(id);
         LOG.info("Deleted user id : " + id);
         return "redirect:/users";
     }
