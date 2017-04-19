@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by nazar on 3/7/17.
@@ -40,13 +41,13 @@ public class JpaTest {
         User nazar = new User("us","us@gmail.com","123456", Role.ADMIN);
         userRepository.save(nazar);
         assertEquals(nazar, userRepository.findByUsername("us"));
-
     }
     @Test
     public void testProductOperation(){
         Product product = new Product(1,"v","bto",50);
         productRepository.save(product);
         assertEquals(product, productRepository.findOne(product.getId()));
+
     }
 }
 
