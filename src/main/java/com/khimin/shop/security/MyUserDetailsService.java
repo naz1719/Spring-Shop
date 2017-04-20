@@ -1,7 +1,10 @@
 package com.khimin.shop.security;
 
+import com.khimin.shop.controllers.ProductController;
 import com.khimin.shop.models.User;
 import com.khimin.shop.repositories.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -17,6 +20,8 @@ import java.util.Collection;
  */
 @Service
 public class MyUserDetailsService implements UserDetailsService{
+    private static Logger LOG = LoggerFactory.getLogger(MyUserDetailsService.class);
+
     private UserRepository userRepository;
 
     @Autowired
@@ -27,15 +32,18 @@ public class MyUserDetailsService implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
+        LOG.info("Finded user : [ "+username+"]");
         if (user == null) {
             throw new UsernameNotFoundException(username);
         }
+//        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), true, true, true, true, AuthorityUtils.createAuthorityList(String.valueOf(user.getRole())));
+
         return new MyUserPrincipal(user);
     }
     class MyUserPrincipal implements UserDetails{
         private User user;
 
-        public MyUserPrincipal(User user) {
+        private MyUserPrincipal(User user) {
             this.user = user;
         }
 
@@ -56,17 +64,17 @@ public class MyUserDetailsService implements UserDetailsService{
 
         @Override
         public boolean isAccountNonExpired() {
-            return false;
+            return true;
         }
 
         @Override
         public boolean isAccountNonLocked() {
-            return false;
+            return true;
         }
 
         @Override
         public boolean isCredentialsNonExpired() {
-            return false;
+            return true;
         }
 
         @Override

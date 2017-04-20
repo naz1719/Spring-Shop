@@ -40,7 +40,9 @@ public class JpaTest {
     public void testUserOpertation() {
         User nazar = new User("us","us@gmail.com","123456", Role.ADMIN);
         userRepository.save(nazar);
-        assertEquals(nazar, userRepository.findByUsername(nazar.getUsername()));
+        User user =userRepository.findByUsername("us");
+        assertEquals(nazar, user);
+
     }
     @Test
     public void testProductOperation(){

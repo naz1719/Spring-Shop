@@ -28,7 +28,7 @@ public class User extends AbstractPersistable<Long>{
     public User(String username, String email, String password, Role role) {
         this.username = username;
         this.email = email;
-        this.password = password;
+        this.password = new BCryptPasswordEncoder().encode(password);
         this.role = role;
     }
 
