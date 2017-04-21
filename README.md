@@ -6,8 +6,11 @@
  * Maven >=3.3.9
  * MongoDB 3.4.3
  * Bower
-    - npm install -g bower 
-    - npm install -g bowerrc
+    - sudo apt-get update
+    - sudo apt-get install nodejs
+    - sudo apt-get install npm
+    - sudo npm install -g bower 
+    - sudo npm install -g bowerrc
  
  ## Spring REST, HATEOAS
  spring.data.rest.base-path=/api
