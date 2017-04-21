@@ -9,8 +9,8 @@
     - sudo apt-get update
     - sudo apt-get install nodejs
     - sudo apt-get install npm
-    - npm install -g bower 
-    - npm install -g bowerrc
+    - sudo npm install -g bower 
+    - sudo npm install -g bowerrc
  
  
  ## Deployment
