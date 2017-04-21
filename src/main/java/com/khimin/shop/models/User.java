@@ -13,7 +13,11 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @Entity
-public class User extends AbstractPersistable<Long>{
+public class User {
+
+    @Id
+    @GeneratedValue
+    private Long id;
 
     private String username;
 

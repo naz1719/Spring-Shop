@@ -16,6 +16,7 @@
             <th>Email</th>
             <th>username</th>
             <th>password</th>
+            <th>role</th>
             <th>View</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -25,6 +26,7 @@
             <td th:text="${user.email}">Email</td>
             <td th:text="${user.username}">username</td>
             <td th:text="${user.password}">Password</td>
+            <td th:text="${user.role}">Password</td>
             <td><a th:href="${ '/user/' + user.id}">View</a></td>
             <td><a th:href="${'/user/edit/' + user.id}">Edit</a></td>
             <td><a th:href="${'/user/delete/' + user.id}">Delete</a></td>

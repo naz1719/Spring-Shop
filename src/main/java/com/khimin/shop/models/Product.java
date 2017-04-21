@@ -13,8 +13,11 @@ import java.math.BigDecimal;
 @Data
 @NoArgsConstructor
 @Entity
-public class Product extends AbstractPersistable<Long> {
+public class Product{
 
+    @Id
+    @GeneratedValue
+    private Long id;
 
     @Version
     private Integer version;
