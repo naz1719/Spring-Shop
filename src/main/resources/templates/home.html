@@ -17,23 +17,6 @@
 </div>
 </header>
 
-<form  th:action="@{/login}" method="post">
-    <md-content layout="column" layout-align="start start" flex layout-padding>
-        <span flex class="md-headline">User Details</span>
-        <div md-theme="green" flex>
-            <md-input-container>
-                <label>Username</label>
-                <input type="text" name="username">
-            </md-input-container>
-            <md-input-container>
-                <label>Password</label>
-                <input type="text" name="password">
-            </md-input-container>
-            <md-button type='submit' class="md-raised md-primary">Submit</md-button>
-        </div>
-    </md-content>
-</form>
-
 <script type="text/ng-template" id="forgetpassword.html">
     <md-toolbar>
         <div class="md-toolbar-tools" style="background-color: lightskyblue ;">
@@ -254,8 +237,6 @@
     </div>
 </script>
 <!--<div ng-include src="'/products'"></div>-->
-<br/><br/>
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
 
 <th:block th:include="fragments/headerinc :: angular"></th:block>
 
