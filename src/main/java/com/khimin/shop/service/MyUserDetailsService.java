@@ -1,6 +1,5 @@
-package com.khimin.shop.security;
+package com.khimin.shop.service;
 
-import com.khimin.shop.controllers.ProductController;
 import com.khimin.shop.models.User;
 import com.khimin.shop.repositories.UserRepository;
 import org.slf4j.Logger;
@@ -19,7 +18,7 @@ import java.util.Collection;
  * Created by nazar on 4/19/17.
  */
 @Service
-public class MyUserDetailsService implements UserDetailsService{
+public class MyUserDetailsService implements UserDetailsService {
     private static Logger LOG = LoggerFactory.getLogger(MyUserDetailsService.class);
 
     private UserRepository userRepository;
@@ -35,12 +34,14 @@ public class MyUserDetailsService implements UserDetailsService{
         if (user == null) {
             throw new UsernameNotFoundException(username);
         }
-        LOG.info("Finded user : ["+username+"]");
+        LOG.info("Finded user : [" + username + "]");
 //        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), true, true, true, true, AuthorityUtils.createAuthorityList(String.valueOf(user.getRole())));
 
         return new MyUserPrincipal(user);
     }
-    class MyUserPrincipal implements UserDetails{
+
+
+    class MyUserPrincipal implements UserDetails {
         private User user;
 
         private MyUserPrincipal(User user) {

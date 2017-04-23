@@ -1,7 +1,7 @@
 package com.khimin.shop;
 
 import com.khimin.shop.models.Role;
-import com.khimin.shop.security.MyUserDetailsService;
+import com.khimin.shop.service.MyUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

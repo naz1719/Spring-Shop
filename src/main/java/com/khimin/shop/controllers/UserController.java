@@ -35,7 +35,7 @@ public class UserController {
     public String list(@PageableDefault(size = 8, direction = Sort.Direction.ASC, sort = "username") Pageable pageable, Model model) {
         model.addAttribute("users", userRepository.findAll(pageable));
         LOG.info("All users");
-        return "users";
+        return "profile/users";
     }
 
     /**
@@ -49,7 +49,7 @@ public class UserController {
     public String showProduct(@PathVariable Long id, Model model) throws UsernameNotFoundException {
         model.addAttribute("user", userRepository.findOne(id));
         LOG.info("User id: " + id);
-        return "usershow";
+        return "profile/usershow";
     }
 
     // Afficher le formulaire de modification du Product
@@ -57,7 +57,7 @@ public class UserController {
     public String edit(@PathVariable Long id, Model model) throws UsernameNotFoundException {
         model.addAttribute("user", userRepository.findOne(id));
         LOG.info("Edited user id: " + id);
-        return "userEditForm";
+        return "profile/userForm";
     }
 
 

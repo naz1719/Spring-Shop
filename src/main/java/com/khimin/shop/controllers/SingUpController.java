@@ -1,8 +1,8 @@
 package com.khimin.shop.controllers;
 
+import com.khimin.shop.service.UserService;
 import com.khimin.shop.exception.EmailExistsException;
 import com.khimin.shop.models.User;
-import com.khimin.shop.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class SingUpController {
     @RequestMapping("registration")
     public String newProduct(Model model) {
         model.addAttribute("user", new User());
-        return "singUp/userform";
+        return "singUp/registration";
     }
 
     /**
