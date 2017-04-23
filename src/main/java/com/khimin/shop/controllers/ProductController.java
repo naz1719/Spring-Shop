@@ -35,7 +35,7 @@ public class ProductController {
     public String list(@PageableDefault(size = 8, direction = Sort.Direction.ASC, sort = "price") Pageable pageable, Model model) {
         model.addAttribute("products", productRepository.findAll(pageable));
         LOG.info("All products");
-        return "products";
+        return "product/products";
     }
 
     /**
@@ -49,7 +49,7 @@ public class ProductController {
     public String showProduct(@PathVariable Long id, Model model) {
         model.addAttribute("product", productRepository.findOne(id));
         LOG.info("Product id: " + id);
-        return "productshow";
+        return "product/productshow";
     }
 
     // Afficher le formulaire de modification du Product
@@ -57,7 +57,7 @@ public class ProductController {
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("product", productRepository.findOne(id));
         LOG.info("Edited product id: " + id);
-        return "productform";
+        return "product/productform";
     }
 
     /**
@@ -69,7 +69,7 @@ public class ProductController {
     @RequestMapping("product/new")
     public String newProduct(Model model) {
         model.addAttribute("product", new Product());
-        return "productform";
+        return "product/productform";
     }
 
     /**

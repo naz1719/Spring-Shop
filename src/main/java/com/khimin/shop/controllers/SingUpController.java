@@ -35,7 +35,7 @@ public class SingUpController {
     @RequestMapping("registration")
     public String newProduct(Model model) {
         model.addAttribute("user", new User());
-        return "userform";
+        return "singUp/userform";
     }
 
     /**

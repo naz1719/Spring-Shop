@@ -11,7 +11,7 @@ import java.security.Principal;
  * Created by nazar on 4/15/17.
  */
 @Controller
-public class DefaultController {
+public class HomeController {
     @RequestMapping("/default")
     public String defaultAfterLogin(HttpServletRequest request) {
         if (request.isUserInRole("ADMIN")) {
@@ -23,8 +23,5 @@ public class DefaultController {
 //    public String index(Principal principal) {
 //        return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
 //    }
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String index(Principal principal) {
-        return "index";
-    }
+
 }
