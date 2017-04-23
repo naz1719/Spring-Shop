@@ -24,14 +24,14 @@ public class UserService implements UserServiceImpl{
 
     @Override
     @Transactional
-    public User registerNewUserAccount(User userDTO)
+    public User registerNewUserAccount(User user)
             throws EmailExistsException {
 
-        if (emailExist(userDTO.getEmail())) {
-            throw new EmailExistsException("email address already exists: "  + userDTO.getEmail());
+        if (emailExist(user.getEmail())) {
+            throw new EmailExistsException("email address already exists: "  + user.getEmail());
         }
 
-        return userRepository.save(userDTO);
+        return userRepository.save(user);
     }
     private boolean emailExist(String email) {
         User user = userRepository.findByEmail(email);

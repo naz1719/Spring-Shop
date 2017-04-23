@@ -1,9 +1,6 @@
 package com.khimin.shop.controllers;
 
-import com.khimin.shop.exception.EmailExistsException;
-import com.khimin.shop.models.User;
 import com.khimin.shop.repositories.UserRepository;
-import com.khimin.shop.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,17 +21,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
     private static Logger LOG = LoggerFactory.getLogger(ProductController.class);
 
-    private UserService userService;
     private UserRepository userRepository;
 
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
-    }
-
-    @Autowired
-    public void setUserService(UserService userService) {
-        this.userService = userService;
     }
 
     /**
@@ -69,30 +60,6 @@ public class UserController {
         return "userEditForm";
     }
 
-    /**
-     * New product.
-     *
-     * @param model
-     * @return
-     */
-    @RequestMapping("registration")
-    public String newProduct(Model model) {
-        model.addAttribute("user", new User());
-        return "userform";
-    }
-
-    /**
-     * Save user to database.
-     *
-     * @param user
-     * @return
-     */
-    @RequestMapping(value = "user", method = RequestMethod.POST)
-    public String saveProduct(User user) throws UsernameNotFoundException, EmailExistsException {
-        userService.registerNewUserAccount(user);
-        LOG.info("Save user: " + user);
-        return "redirect:/user/" + user.getId();
-    }
 
     /**
      * Delete user by its id.
