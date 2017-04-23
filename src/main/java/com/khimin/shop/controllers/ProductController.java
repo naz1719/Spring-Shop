@@ -48,15 +48,15 @@ public class ProductController {
     @RequestMapping("product/{id}")
     public String showProduct(@PathVariable Long id, Model model) {
         model.addAttribute("product", productRepository.findOne(id));
-        LOG.info("Product id: "+id);
+        LOG.info("Product id: " + id);
         return "productshow";
     }
 
     // Afficher le formulaire de modification du Product
     @RequestMapping("product/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
-        model.addAttribute("product",  productRepository.findOne(id));
-        LOG.info("Edited product id: "+id);
+        model.addAttribute("product", productRepository.findOne(id));
+        LOG.info("Edited product id: " + id);
         return "productform";
     }
 
@@ -81,7 +81,7 @@ public class ProductController {
     @RequestMapping(value = "product", method = RequestMethod.POST)
     public String saveProduct(Product product) {
         productRepository.save(product);
-        LOG.info("Save product: "+product);
+        LOG.info("Save product: " + product);
         return "redirect:/product/" + product.getId();
     }
 
@@ -94,7 +94,7 @@ public class ProductController {
     @RequestMapping("product/delete/{id}")
     public String delete(@PathVariable Long id) {
         productRepository.delete(id);
-        LOG.info("Deleted product id : "+ id);
+        LOG.info("Deleted product id : " + id);
         return "redirect:/products";
     }
 

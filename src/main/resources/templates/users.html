@@ -8,6 +8,8 @@
 <body layout="column">
 <th:block th:include="fragments/header :: header"></th:block>
 
+        <!--/*@thymesVar id="users" type="com.khimin.shop.controllers.UserController"*/-->
+
 <div th:if="${not #lists.isEmpty(users)}">
     <h2>Product List</h2>
     <table class="table table-striped">
@@ -26,7 +28,11 @@
             <td th:text="${user.email}">Email</td>
             <td th:text="${user.username}">username</td>
             <td th:text="${user.password}">Password</td>
-            <td th:text="${user.role}">Password</td>
+            <td th:switch="${user.role?.name()}">
+                <p th:case="USER">User</p>
+                <p th:case="ADMIN">Admin</p>
+            </td>
+
             <td><a th:href="${ '/user/' + user.id}">View</a></td>
             <td><a th:href="${'/user/edit/' + user.id}">Edit</a></td>
             <td><a th:href="${'/user/delete/' + user.id}">Delete</a></td>
