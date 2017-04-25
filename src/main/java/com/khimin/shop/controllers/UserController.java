@@ -1,5 +1,7 @@
 package com.khimin.shop.controllers;
 
+import com.khimin.shop.exception.EmailExistsException;
+import com.khimin.shop.models.User;
 import com.khimin.shop.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -55,11 +57,10 @@ public class UserController {
     // Afficher le formulaire de modification du Product
     @RequestMapping("user/edit/{id}")
     public String edit(@PathVariable Long id, Model model) throws UsernameNotFoundException {
-        model.addAttribute("user", userRepository.findOne(id));
-        LOG.info("Edited user id: " + id);
+        model.addAttribute("userform", userRepository.findOne(id));
+        LOG.info("Find user id before edit: " + id);
         return "profile/userForm";
     }
-
 
     /**
      * Delete user by its id.
@@ -74,5 +75,11 @@ public class UserController {
         return "redirect:/users";
     }
 
+    @RequestMapping(value = "userform", method = RequestMethod.POST)
+    public String updateUser(User user) throws UsernameNotFoundException, EmailExistsException {
+        userRepository.save(user);
+        LOG.info("Update user: " + user);
+        return "redirect:/user/" + user.getId();
+    }
 
 }

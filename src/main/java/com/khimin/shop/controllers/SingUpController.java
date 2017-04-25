@@ -45,7 +45,7 @@ public class SingUpController {
      * @return
      */
     @RequestMapping(value = "user", method = RequestMethod.POST)
-    public String saveProduct(User user) throws UsernameNotFoundException, EmailExistsException {
+    public String saveUser(User user) throws UsernameNotFoundException, EmailExistsException {
         userService.registerNewUserAccount(user);
         LOG.info("Save user: " + user);
         return "redirect:/user/" + user.getId();

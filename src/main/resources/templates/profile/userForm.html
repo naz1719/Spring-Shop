@@ -10,7 +10,7 @@
 <th:block th:include="fragments/header :: header"></th:block>
 
 
-<form th:object="${user}" th:action="@{/user}" method="post">
+<form th:object="${userform}" th:action="@{/userform}" method="post">
     <input type="hidden" th:field="*{id}"/>
     <md-content layout="column" layout-align="start start" flex layout-padding>
         <span flex class="md-headline">Product Details</span>
