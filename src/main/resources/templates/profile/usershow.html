@@ -7,7 +7,7 @@
 </head>
 <body>
 <th:block th:include="fragments/header :: header"></th:block>
-<h2>Product Details</h2>
+<h2>User Details</h2>
 <div>
     <form class="form-horizontal">
         <p th:text="'User Id: '+${user.id}"></p>
@@ -15,6 +15,7 @@
         <p th:text="'Name : '+${user.username}"></p>
         <p th:text="'Password : '+${user.password}"></p>
         <p th:text="'Role : '+${user.role}"></p>
+        <p th:text="'isAccountNonLocked : '+${user.isAccountNonLocked}"></p>
     </form>
 </div>
 <th:block th:include="fragments/headerinc :: angular"></th:block>
