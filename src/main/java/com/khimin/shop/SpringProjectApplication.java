@@ -23,8 +23,8 @@ public class SpringProjectApplication {
             productRepository.deleteAll();
             productRepository.save(new Product(5, "id", "Nazar", 50));
             userRepository.deleteAll();
-            User admin = new User("admin","nazar.khimin@gmail.com","password",Role.ADMIN);
-            User user = new User("user","khimin1719@gmail.com","password",Role.USER);
+            User admin = new User("admin","nazar.khimin@gmail.com","password",Role.ADMIN,true);
+            User user = new User("user","khimin1719@gmail.com","password",Role.USER,false);
             userRepository.save(user);
             userRepository.save(admin);
         };
