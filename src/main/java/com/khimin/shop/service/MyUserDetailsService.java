@@ -41,11 +41,15 @@ public class MyUserDetailsService implements UserDetailsService {
     }
 
 
-    class MyUserPrincipal implements UserDetails {
+    public class MyUserPrincipal extends User implements UserDetails {
         private User user;
 
         private MyUserPrincipal(User user) {
             this.user = user;
+        }
+
+        public User getUser() {
+            return user;
         }
 
         @Override
