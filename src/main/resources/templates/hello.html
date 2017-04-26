@@ -12,6 +12,12 @@
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>
+<div>
+    <form class="form-horizontal">
+        <p th:text="'User Id: '+${principle}"></p>
+    </form>
+</div>
+
 <!--<div th:substituteby="index::logout"></div>-->
 <!--<h1>This is a secured page!</h1>-->
 <!--<p><a href="/home" th:href="@{/home}">Back to home page</a></p>-->
