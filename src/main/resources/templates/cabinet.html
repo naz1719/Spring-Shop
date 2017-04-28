@@ -8,15 +8,22 @@
 <body>
 <th:block th:include="fragments/header :: header"></th:block>
 
-<h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+    <h1 th:inline="text">Hello [[${principle.username}]]!</h1>
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Sign Out"/>
 </form>
 <div>
     <form class="form-horizontal">
-        <p th:text="'User Id: '+${principle}"></p>
+        <p th:text="'principle Id: '+${principle.id}"></p>
+        <p th:text="'Email: '+${principle.email}"></p>
+        <p th:text="'Name : '+${principle.username}"></p>
+        <p th:text="'Password : '+${principle.password}"></p>
+        <p th:text="'Role : '+${principle.role}"></p>
+        <p th:text="'isAccountNonLocked : '+${principle.isAccountNonLocked}"></p>
     </form>
 </div>
+<md-button th:href="${'/principle/edit/' + principle.id}" >Edit</md-button>
 
 <!--<div th:substituteby="index::logout"></div>-->
 <!--<h1>This is a secured page!</h1>-->

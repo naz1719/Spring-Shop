@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-password=LACOSTA;
-mysql -u root -p$password -e "CREATE DATABASE IF NOT EXISTS shop;"
+mysql -u root -p$mySQL_password -e "CREATE DATABASE IF NOT EXISTS shop;"
