@@ -21,6 +21,7 @@
  To run locally execute
  
       bower install
+      mysql -u root -p$mySQL_password -e "CREATE DATABASE IF NOT EXISTS shop;"
       
       mvn package
       java -jar target/*.jar 
