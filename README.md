@@ -7,7 +7,7 @@
  * MongoDB 3.4.3
  * Bower
     - sudo apt-get update
-    - sudo apt-get install nodejs
+    - sudo apt install nodejs-legacy
     - sudo apt-get install npm
     - sudo npm install -g bower 
     - sudo npm install -g bowerrc
