@@ -26,8 +26,8 @@ public class User {
 
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
-    private Role role = Role.USER;
-    private Boolean isAccountNonLocked = Boolean.TRUE;
+    private Role role;
+    private Boolean isAccountNonLocked;
 
     public User(String username, String email, String password, Role role, boolean isAccountNonLocked) {
         this.username = username;
@@ -35,10 +35,6 @@ public class User {
         this.password = new BCryptPasswordEncoder().encode(password);
         this.role = role;
         this.isAccountNonLocked=isAccountNonLocked;
-    }
-
-    public void setPassword(String password) {
-        this.password = new BCryptPasswordEncoder().encode(password);
     }
 
 }
