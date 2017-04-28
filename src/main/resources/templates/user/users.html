@@ -17,7 +17,6 @@
             <th>Id</th>
             <th>Email</th>
             <th>username</th>
-            <th>password</th>
             <th>isAccountNonLocked</th>
             <th>role</th>
             <th>View</th>
@@ -28,7 +27,6 @@
             <td th:text="${user.id}"><a href="/users/${users.id}">Id</a></td>
             <td th:text="${user.email}">Email</td>
             <td th:text="${user.username}">username</td>
-            <td th:text="${user.password}">Password</td>
             <td th:text="${user.isAccountNonLocked}">Password</td>
             <td th:switch="${user.role?.name()}">
                 <p th:case="USER">User</p>
