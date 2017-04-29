@@ -32,9 +32,11 @@
             <md-button href="/cabinet" aria-label="Log In">
                Profile
             </md-button>
+            <div th:if="${#authorization.expression('!isAuthenticated()')}">
             <md-button href="/login" aria-label="Log In">
                 Log In
             </md-button>
+            </div>
             <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
             <form th:action="@{/logout}" method="post">
                 <input type="submit" value="Sign Out"/>
