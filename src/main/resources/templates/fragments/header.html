@@ -17,9 +17,11 @@
             <md-button href="/registration" aria-label="Create new registration">
                 registration
             </md-button>
-            <md-button href="/cabinet" aria-label="Log In">
+            <div th:if="${#authorization.expression('isAuthenticated()')}">
+            <md-button href="/cabinet" aria-label="Profile">
                 Profile
             </md-button>
+            </div>
             <div th:if="${#authorization.expression('!isAuthenticated()')}">
                 <md-button href="/login" aria-label="Log In">
                     Log In
@@ -36,18 +38,18 @@
         </div>
     </md-toolbar>
     <div sec:authorize="hasAuthority('ADMIN')">
-    <md-toolbar>
+        <md-toolbar>
 
-        <div class="md-toolbar-tools"   >
-            <md-button href="/users" aria-label="Users">
-                Users
-            </md-button>
-            <md-button href="/product/new" aria-label="Create new product">
-            Create new product
-            </md-button>
-        </div>
+            <div class="md-toolbar-tools">
+                <md-button href="/users" aria-label="Users">
+                    Users
+                </md-button>
+                <md-button href="/product/new" aria-label="Create new product">
+                    Create new product
+                </md-button>
+            </div>
 
-    </md-toolbar>
+        </md-toolbar>
     </div>
 </div>
 </body>
