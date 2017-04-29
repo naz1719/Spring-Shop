@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .and()
             .logout()
-                .permitAll().and()
+                .permitAll().deleteCookies("JSESSIONID").and()
             .exceptionHandling().accessDeniedPage("/accessDenied");
     }
 
