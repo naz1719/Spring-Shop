@@ -18,9 +18,9 @@
                 registration
             </md-button>
             <div th:if="${#authorization.expression('isAuthenticated()')}">
-            <md-button href="/cabinet" aria-label="Profile">
-                Profile
-            </md-button>
+                <md-button href="/cabinet" aria-label="Profile">
+                    Profile
+                </md-button>
             </div>
             <div th:if="${#authorization.expression('!isAuthenticated()')}">
                 <md-button href="/login" aria-label="Log In">
