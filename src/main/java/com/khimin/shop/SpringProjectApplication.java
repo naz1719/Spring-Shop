@@ -5,6 +5,8 @@ import com.khimin.shop.models.Role;
 import com.khimin.shop.models.User;
 import com.khimin.shop.repositories.ProductRepository;
 import com.khimin.shop.repositories.UserRepository;
+import com.khimin.shop.storage.FileSystemStorageService;
+import com.khimin.shop.storage.StorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +19,13 @@ public class SpringProjectApplication {
         SpringApplication.run(SpringProjectApplication.class, args);
     }
 
+    @Bean
+    CommandLineRunner init(FileSystemStorageService storageService) {
+        return (args) -> {
+            storageService.deleteAll();
+            storageService.init();
+        };
+    }
     @Bean
     public CommandLineRunner demo(ProductRepository  productRepository, UserRepository userRepository) {
         return (args) -> {

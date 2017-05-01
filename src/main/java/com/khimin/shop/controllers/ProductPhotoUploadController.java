@@ -2,11 +2,9 @@ package com.khimin.shop.controllers;
 
 import com.khimin.shop.storage.FileSystemStorageService;
 import com.khimin.shop.storage.StorageFileNotFoundException;
-import com.khimin.shop.storage.StorageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +29,6 @@ public class ProductPhotoUploadController {
     }
 
 
-
     @GetMapping("/uploadForm")
     public String listUploadedFiles(Model model) throws IOException {
 
@@ -45,6 +42,7 @@ public class ProductPhotoUploadController {
 
         return "uploadForm";
     }
+
     @PostMapping("/uploadForm")
     public String handleFileUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
@@ -55,6 +53,7 @@ public class ProductPhotoUploadController {
 
         return "redirect:/uploadForm";
     }
+
     @GetMapping("/files/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
@@ -62,7 +61,7 @@ public class ProductPhotoUploadController {
         Resource file = storageService.loadAsResource(filename);
         return ResponseEntity
                 .ok()
-                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\""+file.getFilename()+"\"")
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"")
                 .body(file);
     }
 
