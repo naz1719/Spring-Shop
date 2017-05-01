@@ -14,14 +14,8 @@ import java.security.Principal;
 public class HomeController {
     @RequestMapping("/default")
     public String defaultAfterLogin(HttpServletRequest request) {
-        if (request.isUserInRole("ADMIN")) {
-            return "redirect:/users";
-        }
+
         return "redirect:/products";
     }
-//    @RequestMapping(value = "/", method = RequestMethod.GET)
-//    public String index(Principal principal) {
-//        return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
-//    }
 
 }

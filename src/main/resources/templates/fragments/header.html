@@ -17,9 +17,6 @@
             <md-button href="/registration" aria-label="Create new registration">
                 registration
             </md-button>
-            <md-button href="/uploadForm" aria-label="Create new registration">
-                uploadForm
-            </md-button>
             <div th:if="${#authorization.expression('isAuthenticated()')}">
                 <md-button href="/cabinet" aria-label="Profile">
                     Profile

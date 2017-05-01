@@ -9,10 +9,13 @@
 <th:block th:include="fragments/header :: header"></th:block>
 <h2>Product Details</h2>
 <div>
+    <!--<a th:href="@{/order/{id}/details(id=3,action='show_all')}">-->
     <form class="form-horizontal" >
         <p th:text="'Product Id: '+${product.id}"></p>
         <p th:text="'Name : '+${product.name}"></p>
         <p th:text="'Price : '+${product.price}"></p>
+        <p th:text="'Price : '+${product.photoName}"></p>
+        <img width="200" th:src="@{/images/avatar/{photoNames}(photoNames=${product.photoName})}"/>
     </form>
 </div>
 <th:block th:include="fragments/headerinc :: angular"></th:block>
