@@ -11,7 +11,6 @@ import java.math.BigDecimal;
  * Product entity.
  */
 @Data
-@NoArgsConstructor
 @Entity
 public class Product{
 
@@ -37,5 +36,8 @@ public class Product{
         this.name = name;
         this.price = price;
         this.photoName=photoName;
+    }
+
+    public Product() {
     }
 }

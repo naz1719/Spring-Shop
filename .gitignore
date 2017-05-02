@@ -26,3 +26,7 @@ nbdist/
 .nb-gradle/
 
 src/main/resources/upload-dir/
+/src/main/resources/static/images/avatar/
+src/main/resources/static/images/avatar/bro.jpg
+src/main/resources/static/images/avatar/stone_400x400.jpg
+src/main/resources/static/images/icons/

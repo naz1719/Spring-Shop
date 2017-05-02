@@ -17,6 +17,7 @@
             <th>Name</th>
             <th>Price</th>
             <th></th>
+            <th>Photo</th>
             <th>View</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -29,6 +30,9 @@
             <td>
                 <span th:if="${product.price lt 100}">Special offer!</span>
             </td>
+          <td>
+            <img width="20" th:src="@{/images/avatar/{photoNames}(photoNames=${product.photoName})}"/>
+          </td>
             <td><a th:href="${'/product/' + product.id}">View</a></td>
             <td><a th:href="${'/product/edit/' + product.id}">Edit</a></td>
             <td><a th:href="${'/product/delete/' + product.id}">Delete</a></td>
