@@ -26,8 +26,8 @@ public class Product{
     private Integer price;
     private String photoName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private User user;
 
 
     public Product(Integer version, String productId, String name, Integer price,String photoName) {

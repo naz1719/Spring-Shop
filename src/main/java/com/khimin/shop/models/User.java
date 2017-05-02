@@ -31,8 +31,8 @@ public class User {
     private Role role;
     private Boolean isAccountNonLocked;
 
-    @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
-    private Set<Product> products = new HashSet<Product>();
+//    @OneToMany(fetch=FetchType.LAZY, mappedBy="user")
+//    private Set products;
 
     public User(String username, String email, String password, Role role, boolean isAccountNonLocked) {
         this.username = username;
@@ -42,8 +42,8 @@ public class User {
         this.isAccountNonLocked = isAccountNonLocked;
     }
 
-    public void addProduct(Product product) {
-        product.setUser(this);
-        products.add(product);
-    }
+//    public void addProduct(Product product) {
+//        product.setUser(this);
+//        products.add(product);
+//    }
 }
