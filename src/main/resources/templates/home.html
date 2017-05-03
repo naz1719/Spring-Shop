@@ -8,19 +8,20 @@
 <th:block th:include="fragments/header :: header"></th:block>
 
 <header>
-<div ng-controller="AppCtrl" layout="row" layout-align="end  center">
-    <md-button class="md-raised" id="SingIn">Sing in
-    </md-button>
-    <md-button class="md-raised" id="SingUp" ng-click="SingUp($event)">Sing
-        up
-    </md-button>
-</div>
+    <div ng-controller="AppCtrl" layout="row" layout-align="end  center">
+        <md-button class="md-raised" id="SingIn">Sing in
+        </md-button>
+        <md-button class="md-raised" id="SingUp" ng-click="SingUp($event)">Sing
+            up
+        </md-button>
+    </div>
 </header>
+
 
 <script type="text/ng-template" id="forgetpassword.html">
     <md-toolbar>
         <div class="md-toolbar-tools" style="background-color: lightskyblue ;">
-            <md-icon md-svg-src="img/icons/ic_person_24px.svg" ></md-icon>
+            <md-icon md-svg-src="img/icons/ic_person_24px.svg"></md-icon>
             <!--<h2  style="color: white; align-content: center">^_^</h2>-->
             <span flex></span>
             <md-button class="md-icon-button" ng-click="cancel()">

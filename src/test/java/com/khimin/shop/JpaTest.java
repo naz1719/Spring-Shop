@@ -46,7 +46,7 @@ public class JpaTest {
     }
     @Test
     public void testProductOperation(){
-        Product product = new Product(1,"v","bto",50);
+        Product product = new Product(1,"v","bto",50,"boot.png");
         productRepository.save(product);
         assertEquals(product, productRepository.findOne(product.getId()));
 

@@ -1,6 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 /src/main/resources/static/bower_components/
+/src/main/resources/upload-dir/
 
 ### STS ###
 .apt_generated
@@ -23,3 +24,9 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+src/main/resources/upload-dir/
+/src/main/resources/static/images/avatar/
+src/main/resources/static/images/avatar/bro.jpg
+src/main/resources/static/images/avatar/stone_400x400.jpg
+src/main/resources/static/images/icons/

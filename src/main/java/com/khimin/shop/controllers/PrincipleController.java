@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,13 +32,6 @@ public class PrincipleController {
         this.userRepository = userRepository;
     }
 
-    //    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-//    public String currentUserName(@CurrentUser User user, Model model) {
-//        LOG.info(user.getUsername());
-////        model.addAttribute("principle", user.getUsername());
-//
-//        return "hello";
-//    }
     @RequestMapping(value = "/cabinet", method = RequestMethod.GET)
     public String currentUserName(@CurrentUser MyUserDetailsService.MyUserPrincipal userDetails, Model model) {
         LOG.info(String.valueOf(userDetails.getUser()));

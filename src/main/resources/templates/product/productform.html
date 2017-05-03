@@ -9,7 +9,12 @@
 <body>
 <th:block th:include="fragments/header :: header"></th:block>
 
-<form th:object="${product}" th:action="@{/product}" method="post">
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+
+
+<form th:object="${product}" th:action="@{/product}" method="post" enctype="multipart/form-data">
     <input type="hidden" th:field="*{id}"/>
     <input type="hidden" th:field="*{version}"/>
     <md-content layout="column" layout-align="start start" flex layout-padding>
@@ -27,8 +32,9 @@
                 <label>Price</label>
                 <input type="text" th:field="*{price}">
             </md-input-container>
-
-            <md-button type='submit' class="md-raised md-primary">Submit</md-button>
+            File to upload:
+            <input type="file" th:name="file"/>
+            <md-button type='submit' value="Upload" class="md-raised md-primary">Submit</md-button>
         </div>
     </md-content>
 </form>
