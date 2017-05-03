@@ -1,10 +1,14 @@
 # Spring-Shop
    Java project with crud operations on web.
    
+   ![peek 2017-05-03 20-40](https://cloud.githubusercontent.com/assets/16464652/25675664/fd7f389e-3047-11e7-8cca-161b55c95d3d.gif)
+git push
  ## Prerequisites
  * Java 1.8
  * Maven >=3.3.9
- * MongoDB 3.4.3
+ * MySQL
+    -   mysql -u root -p$mySQL_password -e "CREATE DATABASE IF NOT EXISTS shop;"
+    - spring.datasource.password=LACOSTE
  * Bower
     - sudo apt-get update
     - sudo apt install nodejs-legacy
@@ -36,7 +40,10 @@
       nekohtml:1.9.22'  
 
 ## Built With
-  * [Spring Data JPA](https://github.com/spring-projects/spring-data-mongodb) - Spring Data’s mission is to provide a familiar and consistent, Spring-based programming model for data access while still retaining the special traits of the underlying data store. 
+Back end
+  * [Spring Boot](https://github.com/spring-projects/spring-data-mongodb) - Spring Data’s mission is to provide a familiar and consistent, Spring-based programming model for data access while still retaining the special traits of the underlying data store. 
+  * [Spring Data JPA](https://projects.spring.io/spring-boot/) - Takes an opinionated view of building production-ready Spring applications. Spring Boot favors convention over configuration and is designed to get you up and running as quickly as possible.
+  * [Maven](https://maven.apache.org/) - Apache Maven is a software project management and comprehension tool. Based on the concept of a project object model (POM), Maven can manage a project's build, reporting and documentation from a central piece of information.
 ## Authors
 * **Khimin Nazar** - *Initial work* - [Khimin Nazar](https://github.com/naz1719)
 
