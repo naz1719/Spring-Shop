@@ -29,6 +29,8 @@
       mvn package
       java -jar target/*.jar 
       
+## Manual
+*[Spring-Shop](https://docs.google.com/document/d/1VzACNJqrcfmClpAOLdfmUDOqD2i8JQ0MXS6FjhHFcxU/edit?usp=sharing) Doocumentation for project and technologyes 
 ## Configuration 
      
   * [Thymelif with Angular](https://teamtreehouse.com/library/using-thymeleaf-to-serve-html)
