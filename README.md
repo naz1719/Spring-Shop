@@ -2,7 +2,6 @@
    Java project with crud operations on web.
    
    ![peek 2017-05-03 20-40](https://cloud.githubusercontent.com/assets/16464652/25675664/fd7f389e-3047-11e7-8cca-161b55c95d3d.gif)
-git push
  ## Prerequisites
  * Java 1.8
  * Maven >=3.3.9
