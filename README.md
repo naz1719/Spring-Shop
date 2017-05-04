@@ -1,5 +1,5 @@
 # Spring-Shop
-   Java project with crud operations on web.
+   Java internet-shop with crud operations on web, also with admin side.
    
    ![peek 2017-05-03 20-40](https://cloud.githubusercontent.com/assets/16464652/25675664/fd7f389e-3047-11e7-8cca-161b55c95d3d.gif)
  ## Prerequisites
