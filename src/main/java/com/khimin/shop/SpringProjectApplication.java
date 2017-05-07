@@ -1,12 +1,12 @@
 package com.khimin.shop;
 
+import com.khimin.shop.models.Category;
 import com.khimin.shop.models.Product;
 import com.khimin.shop.models.Role;
 import com.khimin.shop.models.User;
 import com.khimin.shop.repositories.ProductRepository;
 import com.khimin.shop.repositories.UserRepository;
 import com.khimin.shop.storage.FileSystemStorageService;
-import com.khimin.shop.storage.StorageService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,9 +33,9 @@ public class SpringProjectApplication {
             userRepository.deleteAll();
 
             Product pomdor = new Product(5, "id", "Nazar", 50,"boot.png");
+            pomdor.setCategory(new Category("Electro"));
             productRepository.save(pomdor);
             User admin = new User("admin","nazar.khimin@gmail.com","password",Role.ADMIN,true);
-            admin.getProducts().add(pomdor);
             pomdor.setUser(admin);
             User user = new User("user","khimin1719@gmail.com","password",Role.USER,true);
             userRepository.save(user);

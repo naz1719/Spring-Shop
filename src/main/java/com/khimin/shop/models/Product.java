@@ -26,6 +26,9 @@ public class Product{
     private Integer price;
     private String photoName;
 
+    @ManyToOne(cascade=CascadeType.ALL)
+    private Category category;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 

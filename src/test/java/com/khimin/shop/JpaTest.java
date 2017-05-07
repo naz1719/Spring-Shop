@@ -1,5 +1,6 @@
 package com.khimin.shop;
 
+import com.khimin.shop.models.Category;
 import com.khimin.shop.models.Product;
 import com.khimin.shop.models.Role;
 import com.khimin.shop.models.User;
@@ -50,6 +51,13 @@ public class JpaTest {
         productRepository.save(product);
         assertEquals(product, productRepository.findOne(product.getId()));
 
+    }
+    @Test
+    public void testCategoryOperation(){
+        Category electro = new Category("Electro");
+        Product product = new Product(1,"v","bto",50,"boot.png");
+        product.setCategory(electro);
+        productRepository.save(product);
     }
 }
 
