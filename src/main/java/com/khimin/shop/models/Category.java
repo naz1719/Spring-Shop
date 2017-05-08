@@ -16,19 +16,20 @@ import java.util.List;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String name;
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category" )
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
     private List<Product> goods;
 
     public Category(String name) {
         this.name = name;
     }
 
-    public void addProduct(Product product) {
+//    public void addProduct(Product product) {
 //        product.setUser(this);
-        goods.add(product);
-    }
+//        goods.add(product);
+//    }
 }

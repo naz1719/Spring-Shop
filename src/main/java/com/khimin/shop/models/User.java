@@ -5,10 +5,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * Created by nazar on 4/12/17.
@@ -33,9 +29,6 @@ public class User {
     private Role role;
     private Boolean isAccountNonLocked;
 
-    @OneToMany(cascade = {CascadeType.ALL})
-    @JoinTable(name = "basket", joinColumns = @JoinColumn(name="user_id"),inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private Collection<Product> products = new ArrayList<Product>();
 
     public User(String username, String email, String password, Role role, boolean isAccountNonLocked) {
         this.username = username;

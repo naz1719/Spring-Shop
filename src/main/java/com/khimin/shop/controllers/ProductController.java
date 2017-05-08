@@ -109,7 +109,6 @@ public class ProductController {
         return "product/productshow";
     }
 
-    // Afficher le formulaire de modification du Product
     @RequestMapping("product/edit/{id}")
     public String edit(@PathVariable Long id, Model model) {
         model.addAttribute("product", productRepository.findOne(id));

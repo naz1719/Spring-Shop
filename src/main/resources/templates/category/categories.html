@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<head>
+    <title>Title</title>
+</head>
+<th:block th:include="fragments/headerinc :: head"></th:block>
+
+<body layout="column">
+<th:block th:include="fragments/header :: header"></th:block>
+
+<div th:if="${not #lists.isEmpty(categories)}">
+    <h2>Categories List</h2>
+    <table class="table table-striped">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>View</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <tr th:each="category : ${categories}">
+            <td th:text="${category.id}"><a href="/product/${product.id}">Id</a></td>
+            <td th:text="${category.name}">descirption</td>
+            <td><a th:href="${'/category/' + category.id}">View</a></td>
+            <td><a th:href="${'/category/edit/' + category.id}">Edit</a></td>
+            <td><a th:href="${'/category/delete/' + category.id}">Delete</a></td>
+        </tr>
+    </table>
+</div>
+
+<div ng-controller="template">
+    <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols="4" layout-margin layout-padding="5px;" md-gutter="2em"
+                  md-row-height="4:5">
+        <md-grid-tile ng-repeat="mobile in mobile">
+            <md-card md-whiteframe="3">
+                <md-card-header style="height: 55px; background-color: yellow">
+                    <!--<md-card-header-text style="background-color: yellow">-->
+                    <div class="md-title" style="color: #0c2238; margin-left: auto; margin-right: auto">
+                        {{mobile.name}}
+                    </div>
+                    <md-button layout="row" layout-align="end start" style="margin-top: -7px;" class="md-icon-button"
+                               ng-click="cancel()">
+                        <md-icon md-svg-src="img/icons/ic_close_24px.svg" aria-label="Close dialog"></md-icon>
+                    </md-button>
+                </md-card-header>
+                <div style="width:100%; height: 100%; ">
+                    <img ng-src="{{mobile.img}}" class="md-card-image" alt="Washed Out">
+                </div>
+                <md-card-content style="margin-left: auto; margin-right: auto">
+                    <span contenteditable="true" class="md-body-1">Экран 4.3" (540x960, сенсорный)</span>
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="space-around center">
+                    <md-button class="md-raised" style="background-color: yellow; color: black">Add to basket
+                    </md-button>
+                    <md-button class="md-raised" style="background-color: yellow; color: black">Buy</md-button>
+                </md-card-actions>
+            </md-card>
+        </md-grid-tile>
+
+        <md-grid-tile ng-repeat="subitem in item.subitems track by $index">
+            <sub-item-partial></sub-item-partial>
+        </md-grid-tile>
+    </md-grid-list>
+</div>
+
+
+<th:block th:include="fragments/headerinc :: angular"></th:block>
+
+</body>
+</html>

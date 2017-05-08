@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" ng-app="myApp" ng-cloak="" class="no-js">
+<head lang="en">
+
+    <title>Spring Boot Exemple</title>
+    <th:block th:include="fragments/headerinc :: head"></th:block>
+</head>
+<body>
+<th:block th:include="fragments/header :: header"></th:block>
+<h2>Category Details</h2>
+<div>
+    <!--<a th:href="@{/order/{id}/details(id=3,action='show_all')}">-->
+    <form class="form-horizontal" >
+        <p th:text="'category Id: '+${category.id}"></p>
+        <p th:text="'Name : '+${category.name}"></p>
+    </form>
+</div>
+<th:block th:include="fragments/headerinc :: angular"></th:block>
+</body>
+</html>

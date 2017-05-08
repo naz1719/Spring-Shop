@@ -26,20 +26,24 @@ public class SpringProjectApplication {
 //            storageService.init();
         };
     }
+
     @Bean
-    public CommandLineRunner demo(ProductRepository  productRepository, UserRepository userRepository) {
+    public CommandLineRunner demo(ProductRepository productRepository, UserRepository userRepository) {
         return (args) -> {
             productRepository.deleteAll();
             userRepository.deleteAll();
 
-            Product pomdor = new Product(5, "id", "Nazar", 50,"boot.png");
-            pomdor.setCategory(new Category("Electro"));
-            productRepository.save(pomdor);
-            User admin = new User("admin","nazar.khimin@gmail.com","password",Role.ADMIN,true);
-            pomdor.setUser(admin);
-            User user = new User("user","khimin1719@gmail.com","password",Role.USER,true);
-            userRepository.save(user);
+            Product pomdor = new Product(5, "id", "Nazar", 50, "boot.png");
+            User admin = new User("admin", "nazar.khimin@gmail.com", "password", Role.ADMIN, true);
+//            List<Product> basket = new ArrayList<>();
+//            basket.add(pomdor)
+//            admin.setBasket(basket);
+//            pomdor.setCategory(new Category("Electro"));
+            User user = new User("user", "khimin1719@gmail.com", "password", Role.USER, true);
+
             userRepository.save(admin);
+            productRepository.save(pomdor);
+            userRepository.save(user);
         };
     }
 }

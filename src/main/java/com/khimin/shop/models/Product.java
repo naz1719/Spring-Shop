@@ -1,18 +1,15 @@
 package com.khimin.shop.models;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 /**
  * Product entity.
  */
 @Data
 @Entity
-public class Product{
+public class Product {
 
     @Id
     @GeneratedValue
@@ -26,19 +23,16 @@ public class Product{
     private Integer price;
     private String photoName;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Category category;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private User user;
 
-
-    public Product(Integer version, String productId, String name, Integer price,String photoName) {
+    public Product(Integer version, String productId, String name, Integer price, String photoName) {
         this.version = version;
         this.productId = productId;
         this.name = name;
         this.price = price;
-        this.photoName=photoName;
+        this.photoName = photoName;
     }
 
     public Product() {
