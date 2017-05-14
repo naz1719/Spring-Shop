@@ -8,38 +8,38 @@ myApp.config(function ($mdThemingProvider) {
         .primaryPalette('yellow')
         .dark();
 });
-myApp.controller('template', function ($scope) {
-    $scope.mobile = [
-        {
-            "name": "HTC One X",
-            "img": "components/image/phone/htc-one-s.png"
-        },
-        {
-            "name": "Meizu mx4",
-            "img": "components/image/phone/meizu.jpg"
-        },
-        {
-            "name": "Iphone 7",
-            "img": "components/image/phone/iphone7.jpg"
-        },
-        {
-            "name": "Sony Experia Z5",
-            "img": "components/image/phone/sony_xperia_z5_green.jpg"
-        },
-        {
-            "name": "Meizu mx4",
-            "img": "components/image/phone/meizu.jpg"
-        },
-        {
-            "name": "Iphone 7",
-            "img": "components/image/phone/iphone7.jpg"
-        },
-        {
-            "name": "Sony Experia Z5",
-            "img": "components/image/phone/sony_xperia_z5_green.jpg"
-        }
-    ];
-});
+// myApp.controller('template', function ($scope) {
+//     $scope.mobile = [
+//         {
+//             "name": "HTC One X",
+//             "img": "components/image/phone/htc-one-s.png"
+//         },
+//         {
+//             "name": "Meizu mx4",
+//             "img": "components/image/phone/meizu.jpg"
+//         },
+//         {
+//             "name": "Iphone 7",
+//             "img": "components/image/phone/iphone7.jpg"
+//         },
+//         {
+//             "name": "Sony Experia Z5",
+//             "img": "components/image/phone/sony_xperia_z5_green.jpg"
+//         },
+//         {
+//             "name": "Meizu mx4",
+//             "img": "components/image/phone/meizu.jpg"
+//         },
+//         {
+//             "name": "Iphone 7",
+//             "img": "components/image/phone/iphone7.jpg"
+//         },
+//         {
+//             "name": "Sony Experia Z5",
+//             "img": "components/image/phone/sony_xperia_z5_green.jpg"
+//         }
+//     ];
+// });
 myApp.controller('AppCtrl', function ($scope, $mdDialog, $mdMedia, $mdToast) {
     // Hide & show password function
     $scope.customFullscreen = true;
