@@ -1,6 +1,7 @@
 # Spring-Shop
-   Java internet-shop with crud operations on web, also with admin side.
-   
+   Web-store which allows clients to directly register online, see a profile and all goods info and photo. Also, allow crud operations of users and products by admin side.
+										
+
    ![peek 2017-05-03 20-40](https://cloud.githubusercontent.com/assets/16464652/25675664/fd7f389e-3047-11e7-8cca-161b55c95d3d.gif)
  ## Prerequisites
  * Java 1.8
